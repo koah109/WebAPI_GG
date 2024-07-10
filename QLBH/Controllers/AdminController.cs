@@ -116,6 +116,36 @@ namespace QLBH.Controllers
 
         #endregion
 
+        #region Orders
+        [HttpGet("{GetListOrder}")]
+        public IActionResult getListOrders(int id)
+        {
+            List<Orders> orders = _context.Orders.ToList();
+            if (id == null)
+            {
+                return NoContent();
+            }
+            return Ok(orders);
+        }
+
+        [HttpDelete("{DeleteOrders}")]
+        public IActionResult deleteOrder(int id)
+        {
+            Orders orders = _context.Orders.Include(n => n.Order_no).Include(n => n.Order_date).FirstOrDefault(n => n.Order_no == id);
+            if (orders != null)
+            {
+                _context.Orders.Remove(orders);
+                _context.SaveChanges();
+                return Ok(orders);
+            }
+            return NoContent();
+        }
+        #endregion
+
+        #region Report
+
+        #endregion
+
         public bool productExisted(int id)
         {
             return _context.Product.Any(e=>e.Prod_code == id);

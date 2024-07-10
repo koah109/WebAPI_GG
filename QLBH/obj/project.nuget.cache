@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pbxIcafMl1U=",
+  "dgSpecHash": "ROWUqFhOdg8=",
   "success": true,
-  "projectFilePath": "D:\\QLBH\\QLBH\\QLBH.csproj",
+  "projectFilePath": "D:\\QLBH\\WebAPI_GG\\QLBH\\QLBH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\khoa\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\khoa\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -4438,11 +4438,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\QLBH\\QLBH\\QLBH.csproj",
+      "projectUniqueName": "D:\\QLBH\\WebAPI_GG\\QLBH\\QLBH.csproj",
       "projectName": "QLBH",
-      "projectPath": "D:\\QLBH\\QLBH\\QLBH.csproj",
+      "projectPath": "D:\\QLBH\\WebAPI_GG\\QLBH\\QLBH.csproj",
       "packagesPath": "C:\\Users\\khoa\\.nuget\\packages\\",
-      "outputPath": "D:\\QLBH\\QLBH\\obj\\",
+      "outputPath": "D:\\QLBH\\WebAPI_GG\\QLBH\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
