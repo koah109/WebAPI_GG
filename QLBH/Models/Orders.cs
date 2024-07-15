@@ -1,7 +1,10 @@
-﻿namespace QLBH.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace QLBH.Models
 {
     public class Orders
     {
+        [Key]
         public int Order_no {  get; set; }
         
         public DateTime Order_date { get; set; }
@@ -27,6 +30,6 @@
         
         public DateTime Update_date { get; set; }
         
-        public string Updater {  get; set; }    
+        public string? Updater {  get; set; }    
     }
 }

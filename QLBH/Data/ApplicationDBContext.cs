@@ -18,5 +18,7 @@ namespace QLBH.Data
         public DbSet<Order_Detail> order_Detail { get; set; }
 
         public DbSet<Product> Product { get; set; }
+
+        public DbSet<Bill> Bills    { get; set; }
     }
 }

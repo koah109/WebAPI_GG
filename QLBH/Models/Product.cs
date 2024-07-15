@@ -1,18 +1,23 @@
-﻿namespace QLBH.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace QLBH.Models
 {
     public class Product
     {
-        public int Prod_code { get; set; }
+        [Key]
+        public int PROD_CODE{ get; set; }
 
-        public string Prod_name {  get; set; }  
+        public string? PROD_NAME {  get; set; }
 
-        public float UnitPrice {  get; set; }
+        public decimal? UNITPRICE {  get; set; }
         
-        public int Stock_QTY {  get; set; } 
+        public int STOCK_QTY {  get; set; } 
 
-        public DateTime Update_date { get; set; }
+        public DateTime UPDATE_DATE { get; set; }
         
-        public string Updater {  get; set; }    
+        public string? UPDATER {  get; set; }
+
+        public int? WH_CODE { get; set; }
     }   
 
 }
