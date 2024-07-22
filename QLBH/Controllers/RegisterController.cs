@@ -14,23 +14,6 @@ namespace QLBH.Controllers
         }
 
 
-        [HttpPost("{Register}")]
-        public IActionResult Register (Customer customer)
-        {
-            Customer accountDB = _context.Customer.FirstOrDefault(n=>n.Username== customer.Username);
-            if (accountDB != null)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,"Username Existed");
-            }
-            else
-            {
-                
-                customer.Update_date = DateTime.Now;
-                _context.Customer.Add(customer);
-                _context.SaveChanges();
-                return Ok(customer);
-            }
-
-        }
+       
     }
 }

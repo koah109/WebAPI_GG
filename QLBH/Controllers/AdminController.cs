@@ -4,6 +4,7 @@ using QLBH.Data;
 using QLBH.DTO;
 using QLBH.Interface;
 using QLBH.Models;
+using QLBH.Models.Response;
 using QLBH.Service;
 using System.Reflection.Metadata.Ecma335;
 
@@ -11,10 +12,10 @@ namespace QLBH.Controllers
 {
     public class AdminController : ControllerBase
     {
-        private readonly IProduct _service;
+        private readonly IProduct Product_service;
         public AdminController(IProduct productService)
         {
-            _service = productService; 
+            Product_service = productService; 
         }
         
 
@@ -64,68 +65,59 @@ namespace QLBH.Controllers
         [Route("SearchProduct")]
         public IActionResult getListProd(ProductDTO request)
         {
-            var prod = _service.getList(request);
+            var prod = Product_service.getList(request);
             var result = new BaseResultPagingResponse<Product>();
             result.Status = 200;
             result.Message = "Get ok";
-            result.Page = request.Page;
+            result.Page = 0;
             result.Total = 0;
             result.Items = prod.Result;
             return Ok(result);
         }
 
-        /*[HttpPost]
-        [Route("{PostProduct}")]
-        public IActionResult postProd(Product product)
+        [HttpGet]
+        [Route("GetProduct")]
+
+        public async Task<IActionResult> GetById(int id)
         {
-            //_context.Product.Add(product);
-            //_context.SaveChanges();
-            return CreatedAtAction(nameof(postProd), new { id = product.PROD_CODE }, product);
+            var order = await Product_service.getProd(id);
+            var result = new BaseResultPagingResponse<Product>();
+            result.Status = 200;
+            result.Message = "Get ok";
+            result.Page = 0;
+            result.Total = 0;
+            result.Items = order;
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("PostProduct")]
+        public async Task<IActionResult> postProd(ProductDTO products)
+        {
+            /*if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }*/
+
+            var product = await Product_service.PostProdById(products);
+            return CreatedAtAction(nameof(GetById), new { id =product.PROD_CODE }, product);
         }
 
         [HttpPut]
-        [Route("{UpdateProduct}")]
-        public IActionResult putProd(int id, Product product)
+        [Route("UpdateProduct")]
+        public async Task<IActionResult> putProd(Product products)
         {
-            if (id != product.PROD_CODE)
-            {
-                return BadRequest();
-            }
-            _context.Entry(product).State = EntityState.Modified;
+            var product = await Product_service.PutProductById(products);
+            return Ok(product);
+        }
 
-            try
-            {
-                _context.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!productExisted(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-            return NoContent();
-        }*/
-
-        /*        [HttpDelete("{DeleteProduct}")]
-                public IActionResult deleteProd(int id)
-                {
-                    Product product = _context.Product.Include(n=>n.Prod_code).Include(n=>n.Prod_name).FirstOrDefault(n=>n.Prod_code == id);
-                    if (product != null)
-                    {
-                        _context.Product.Remove(product);
-                        _context.SaveChanges();
-                        return Ok(product);
-                    }
-                    else
-                    {
-                        return NotFound();
-                    }
-                }*/
+        [HttpDelete]
+        [Route ("ProductDelete")]
+        public async Task<IActionResult> deleteProd(int products)
+        {
+            var product = await Product_service.DeleteProductById(products);
+            return Ok(product);
+        }
 
         #endregion
 

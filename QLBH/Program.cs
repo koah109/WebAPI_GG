@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
 using QLBH.Interface;
 using QLBH.Service;
+using QLBH.App_Start;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDBContext>();
 builder.Services.AddScoped<IProduct, ProductService>();
+builder.Services.AddScoped<IOrders, OrdersService>();
+// MAP SERVICE
+//AutoFac.Res(builder.Services);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

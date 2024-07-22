@@ -9,6 +9,13 @@ namespace QLBH.Interface
         Task<List<Product>> getList(ProductDTO request);
 
 
-        Task<List<Product>> getProd(Product product);
+        Task<List<Product>> getProd(int id);
+
+        Task<Product> PostProdById(ProductDTO request);
+
+        Task<Product> PutProductById(Product response);
+
+        Task<Product> DeleteProductById(int id);
+        
     }
 }

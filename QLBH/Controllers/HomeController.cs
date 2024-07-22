@@ -1,79 +1,84 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
 using QLBH.DTO;
 using QLBH.Interface;
 using QLBH.Models;
+using QLBH.Models.Response;
 
 namespace QLBH.Controllers
 {
+    //[AllowAnonymous]
+    [Route("api/product")]
     public class HomeController : ControllerBase
     {
-        private readonly IProduct _service;
-        public HomeController(IProduct productService)
+        private readonly IProduct Prod_service;
+        private readonly IOrders Order_service;
+        public HomeController(IProduct productService,IOrders Orderservice)
         {
-            _service = productService;
+            Prod_service = productService;
+            Order_service = Orderservice;
         }
 
         [HttpGet]
-        [Route("GetLisProduct")]
-        public IActionResult getListProducts(Product product)
+        // api/product
+        public async Task<IActionResult> GetListProducts(int id)
         {
-            var prod = _service.getProd(product);
+            var prod = await Prod_service.getProd(id);
             var result = new BaseResultPagingResponse<Product>();
             result.Status = 200;
             result.Message = "Get ok";
             result.Page = 0;
             result.Total = 0;
-            result.Items = prod.Result;
+            result.Items = prod;
+
             return Ok(result);
 
         }
 
-        /*[HttpGet]
-        [Route("GetDetailProduct")]
-        public IActionResult getDetailProduct(int id)
-        {
 
-            var prod = _context.Product
-                .Where(n => n.PROD_CODE == id)
-                .Include(n => n.PROD_NAME)
-                .Include(n => n.UNITPRICE)
-                .Include(n => n.STOCK_QTY)
-                .FirstOrDefaultAsync().Result;
-            return Ok(prod);
-        }*/
-
-        /*[HttpPost]
-        [Route("{OrderProduct}")]
-        public IActionResult orderProduct(Orders order)
+        [HttpPost]
+        [Route("OrderPost")]
+        public async Task<IActionResult> orderProduct(OrderDTO orders)
         {
-            _context.Orders.Add(order);
-            _context.SaveChanges();
-            return CreatedAtAction(nameof(getDetailProduct), new { id = order.Order_no }, order);
-        }*/
-
-        /*[HttpDelete]
-        [Route("{DeleteOrder}")]
-        public IActionResult deleteOrder(int id)
-        {
-            Orders orders = _context.Orders.Where(n => n.Order_no == id).Include(n => n.Order_date).FirstOrDefaultAsync().Result;
-            if (orders != null)
+            if (!ModelState.IsValid)
             {
-                _context.Orders.Remove(orders);
-                _context.SaveChanges();
-                return Ok(orders);
+                return BadRequest(ModelState);
             }
-            return NoContent();
-        }*/
+
+            var order = await Order_service.PostOrders(orders);
+            return CreatedAtAction(nameof(GetById), new { id = order.ORDER_NO }, order);
+        }
 
         [HttpGet]
-        [Route("{GetBill}")]
-        public IActionResult getBills(Bill bill)
+        [Route("OrderGet")]
+        public async Task<IActionResult> GetById(int id)
         {
-
-            return null;
+            var order = await Order_service.GetOrderById(id);
+            var result = new BaseResultPagingResponse<ORDER_DETAILS>();
+            result.Status = 200;
+            result.Message = "Get ok";
+            result.Page = 0;
+            result.Total = 0;
+            result.Items = order;
+            return Ok(result);
         }
+
+
+        [HttpDelete]
+        [Route("OrderDelete")]
+        public async Task<IActionResult> deleteOrder(int id)
+        {
+            var result = await Order_service.DeleteOrderById(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+
+        }
+
 
 
     }

@@ -1,4 +1,4 @@
-﻿namespace QLBH.Models
+﻿namespace QLBH.Models.Response
 {
     public class BaseResultResponse<T>
     {
