@@ -10,51 +10,42 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace QLBH.Controllers
 {
+    [Route("API/Admin")]
     public class AdminController : ControllerBase
     {
+        
         private readonly IProduct Product_service;
-        public AdminController(IProduct productService)
+        private readonly ICustomer Customer_service;
+        public AdminController(IProduct productService, ICustomer customerService)
         {
             Product_service = productService; 
+            Customer_service = customerService;
         }
         
 
         #region Customer
-        /*        [HttpGet ("{GetListCustomer}")]
-                public IActionResult getListCust(CustomerDTO request)
-                {
-                    List<Customer> customers = _context.Customer.ToList();
-                    if (request != null)
-                    {
-                        if (request.searchValue != null)
-                        {
-                            customers = customers.Where(n=>n.Cust_name.Contains(request.searchValue)).ToList();
-                        }
-                    }
-
-                    var result = new BaseResultPagingResponse<Customer>();
-                    result.Status = 200;
-                    result.Message = "Get ok";
-                    result.Page = request.Page;
-                    result.Total = 0;
-                    result.Items = customers;
-
-                    return Ok(result);
-                }*/
+        [HttpGet]
+        [Route("ListCustomer")]
+        public async Task<IActionResult> getListCust(int id)
+        {
+            var cust = await Customer_service.GetCustomer(id);
+            var result = new BaseResultPagingResponse<Customer>();
+            result.Status = 200;
+            result.Message = "Get ok";
+            result.Page = 0;
+            result.Total = 0;
+            result.Items = cust;
+            return Ok(result);
+        }
 
 
-        /*        [HttpDelete("{DeleteCustomer}")]
-                public IActionResult deleteCust(Customer customer)
-                {
-                    var cust = _context.Customer.FindAsync(customer);
-                    if (cust == null)
-                    {
-                        return NotFound();
-                    }
-                    _context.Customer.Remove(customer);
-                    _context.SaveChanges();
-                    return NoContent();
-                }*/
+        [HttpDelete]
+        [Route("DeleteCustomer")]
+        public async Task<IActionResult> DelCust(int id)
+        {
+            var cust = await Customer_service.DeleteCus(id);
+            return Ok(cust);
+        }
 
         #endregion
 
@@ -94,10 +85,10 @@ namespace QLBH.Controllers
         [Route("PostProduct")]
         public async Task<IActionResult> postProd(ProductDTO products)
         {
-            /*if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
-            }*/
+            }
 
             var product = await Product_service.PostProdById(products);
             return CreatedAtAction(nameof(GetById), new { id =product.PROD_CODE }, product);

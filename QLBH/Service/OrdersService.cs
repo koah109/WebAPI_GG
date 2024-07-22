@@ -23,7 +23,6 @@ namespace QLBH.Service
 
             var order = new ORDER_DETAILS
             {
-                SO_ROW_NO = request.SO_ROW_NO,
                 PROD_NAME = request.PROD_NAME,
                 QUANTITY = request.QUANTITY,
                 UNITPRICE = request.PRICE * (float)request.QUANTITY,

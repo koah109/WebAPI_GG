@@ -16,6 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IProduct, ProductService>();
 builder.Services.AddScoped<IOrders, OrdersService>();
+builder.Services.AddScoped<ICustomer, CustomerService>();
+builder.Services.AddScoped<ICustomer, CustomerService>();
 // MAP SERVICE
 //AutoFac.Res(builder.Services);
 

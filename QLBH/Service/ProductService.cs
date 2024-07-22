@@ -20,9 +20,9 @@ namespace QLBH.Service
         public async Task<List<Product>> getList(ProductDTO request)
         {
             var prod = _context.PRODUCT.AsQueryable();
-            if (request.SEARCHVALUE != null)
+            if (request.PROD_NAME != null)
             {
-                prod = prod.Where(n => n.PROD_NAME.Contains(request.SEARCHVALUE));
+                prod = prod.Where(n => n.PROD_NAME.Contains(request.PROD_NAME));
             }
             return await prod.ToListAsync();
             //var data = await prod.ToListAsync();
@@ -39,8 +39,7 @@ namespace QLBH.Service
         {
             var order = new Product
             {
-                PROD_CODE = request.PROD_CODE,
-                PROD_NAME = request.SEARCHVALUE,
+                PROD_NAME = request.PROD_NAME,
                 STOCK_QTY = request.STOCK_QTY,
                 UNITPRICE = request.UNITPRICE,
                 WH_CODE = request.WH_CODE,

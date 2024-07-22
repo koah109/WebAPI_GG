@@ -4,10 +4,8 @@ namespace QLBH.DTO
 {
     public class ProductDTO
     {
-        [Key]
-        public int? PROD_CODE { get; set; }
 
-        public string? SEARCHVALUE { get; set; }
+        public string? PROD_NAME { get; set; }
 
         public float? UNITPRICE { get; set; }
 

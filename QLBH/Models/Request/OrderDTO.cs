@@ -7,7 +7,6 @@ namespace QLBH.DTO
     {
         [Key]
 
-        public int? SO_ROW_NO {  get; set; }
         public string?  PROD_NAME { get; set; }
 
         public int? QUANTITY {  get; set; }

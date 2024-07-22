@@ -1,6 +1,6 @@
 ﻿namespace QLBH.DTO
 {
-    public class CustomerDTO: PagingRequest
+    public class CustomerDTO
     {
         public string? searchValue { get; set; }
 
