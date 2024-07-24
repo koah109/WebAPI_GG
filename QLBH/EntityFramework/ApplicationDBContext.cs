@@ -20,10 +20,12 @@ namespace QLBH.Data
 
         public DbSet<Warehouse> WAREHOUSE { get; set; } 
 
+        public DbSet<Department> DEPARTMENT { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=ADMIN;Database=MyDB;Trusted_Connection=True; MultipleActiveResultSets=true;TrustServerCertificate=True");
         }
-
+        
     }
 }

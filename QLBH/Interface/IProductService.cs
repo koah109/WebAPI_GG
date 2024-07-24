@@ -4,14 +4,14 @@ using QLBH.Service;
 
 namespace QLBH.Interface
 {
-    public interface IProduct
+    public interface IProductService
     {
-        Task<List<Product>> getList(ProductDTO request);
+        Task<List<Product>> GetList(ProductRequest request);
 
 
-        Task<List<Product>> getProd(int id);
+        Task<List<Product>> GetProd(int id);
 
-        Task<Product> PostProdById(ProductDTO request);
+        Task<Product> PostProdById(ProductRequest request);
 
         Task<Product> PutProductById(Product response);
 

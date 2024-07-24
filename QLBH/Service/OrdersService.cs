@@ -9,7 +9,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace QLBH.Service
 {
-    public class OrdersService: IOrders
+    public class OrdersService: IOrdersService
     {
         private readonly ApplicationDBContext _context;
         public OrdersService(ApplicationDBContext context)
@@ -17,38 +17,37 @@ namespace QLBH.Service
             _context = context;
         }
 
-        public async Task<ORDER_DETAILS> PostOrders(OrderDTO request)
+        public async Task<ORDER_DETAILS> PostOrders(OrderRequest request)
         {
-
-
+            
+            var order_detail = new OrderDetailRequest();
             var order = new ORDER_DETAILS
             {
-                PROD_NAME = request.PROD_NAME,
-                QUANTITY = request.QUANTITY,
-                UNITPRICE = request.PRICE * (float)request.QUANTITY,
+                PROD_CODE = order_detail.PROD_CODE,
+
                 
                 DELIVERY_DATE = DateTime.Now,
                 UPDATE_DATE = DateTime.Now,
             };
-            
+
             _context.ORDER_DETAILS.Add(order);
             await _context.SaveChangesAsync();
             return order;
 
         }
 
-        public async Task<List<ORDER_DETAILS>> GetOrderById(int id)
+        public async Task<List<Orders>> GetOrderById(int id)
         {
-            return await _context.ORDER_DETAILS.ToListAsync();
+            return await _context.ORDERS.ToListAsync();
         }
 
-        public async  Task<ORDER_DETAILS> DeleteOrderById(int id)
+        public async  Task<Orders> DeleteOrderById(int id)
         {
-            ORDER_DETAILS orders = await _context.ORDER_DETAILS.Where(n => n.SO_ROW_NO == id).FirstOrDefaultAsync();
+            Orders orders = await _context.ORDERS.Where(n => n.ORDER_NO == id).FirstOrDefaultAsync();
 
             if (orders != null)
             {
-                _context.ORDER_DETAILS.Remove(orders);
+                _context.ORDERS.Remove(orders);
                 await _context.SaveChangesAsync();
             }
 

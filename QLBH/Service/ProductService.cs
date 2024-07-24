@@ -7,7 +7,7 @@ using QLBH.Interface;
 using Microsoft.AspNetCore.Http.HttpResults;
 namespace QLBH.Service
 {
-    public class ProductService : IProduct
+    public class ProductService : IProductService
     {
         private readonly ApplicationDBContext _context;
 
@@ -17,7 +17,7 @@ namespace QLBH.Service
 
         }
 
-        public async Task<List<Product>> getList(ProductDTO request)
+        public async Task<List<Product>> GetList(ProductRequest request)
         {
             var prod = _context.PRODUCT.AsQueryable();
             if (request.PROD_NAME != null)
@@ -29,13 +29,13 @@ namespace QLBH.Service
             //return data;
         }
 
-        public async Task<List<Product>> getProd(int id)
+        public async Task<List<Product>> GetProd(int id)
         {
             return await _context.PRODUCT.ToListAsync();
         }
 
 
-        public async Task<Product> PostProdById(ProductDTO request)
+        public async Task<Product> PostProdById(ProductRequest request)
         {
             var order = new Product
             {

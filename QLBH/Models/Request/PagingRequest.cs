@@ -1,9 +1,13 @@
-﻿namespace QLBH.DTO
+﻿using System.Text.Json.Serialization;
+
+namespace QLBH.DTO
 {
     public class PagingRequest
     {
-        public int Page { get; set; }   
+        [JsonPropertyName("page")]
+        public int Page { get; set; }
 
+        [JsonPropertyName("limit")]
         public int Limit { get; set; }  
     }
 }

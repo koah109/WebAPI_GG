@@ -1,4 +1,5 @@
-﻿using Azure.Core;
+﻿using Azure;
+using Azure.Core;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
@@ -8,7 +9,7 @@ using QLBH.Models;
 
 namespace QLBH.Service
 {
-    public class CustomerService:ICustomer
+    public class CustomerService:ICustomerService
     {
         private readonly ApplicationDBContext _context;
         public CustomerService(ApplicationDBContext context)
@@ -32,15 +33,15 @@ namespace QLBH.Service
             return cust;
         }
 
-        public async Task<Customer> PostCust(CustomerDTO request)
+        public async Task<Customer> PostCust(CustomerRequest request)
         {
 
             var cust = new Customer
             {
-                EMAIL = request.email,
-                CUST_NAME = request.searchValue,
-                PHONE = request.phone,
-                ADDRESS = request.address,
+                EMAIL = request.EMAIL,
+                CUST_NAME = request.CUST_NAME,
+                PHONE = request.PHONE,
+                ADDRESS = request.ADDRESS,
                 UPDATER = "Admin",
                 UPDATE_DATE = DateTime.Now,
             };
@@ -48,6 +49,14 @@ namespace QLBH.Service
             _context.CUSTOMER.Add(cust);
             await _context.SaveChangesAsync();
             return cust;
+        }
+
+
+        public async Task<Customer> PutCust(Customer request)
+        {
+            _context.Entry(request).State = EntityState.Modified;
+            _context.SaveChanges();
+            return request;
         }
     }
 }

@@ -7,9 +7,10 @@ namespace QLBH.Models
     public class Customer
     {
         [Key]
+        [JsonPropertyName("cust_code")]
         public int CUST_CODE { get; set; }
 
-        //[JsonPropertyName("CUST_NAME123")]
+        [JsonPropertyName("cust_name")]
         public string? CUST_NAME { get; set; }
 
         public string? ADDRESS { get;   set;}

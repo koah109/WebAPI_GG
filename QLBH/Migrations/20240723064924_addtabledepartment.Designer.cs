@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QLBH.Data;
 
@@ -11,9 +12,11 @@ using QLBH.Data;
 namespace QLBH.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20240723064924_addtabledepartment")]
+    partial class addtabledepartment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,8 +29,7 @@ namespace QLBH.Migrations
                 {
                     b.Property<int>("CUST_CODE")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("Relational:JsonPropertyName", "cust_code");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CUST_CODE"));
 
@@ -35,8 +37,7 @@ namespace QLBH.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CUST_NAME")
-                        .HasColumnType("nvarchar(max)")
-                        .HasAnnotation("Relational:JsonPropertyName", "cust_name");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EMAIL")
                         .HasColumnType("nvarchar(max)");
@@ -209,8 +210,8 @@ namespace QLBH.Migrations
                     b.Property<DateTime>("REQUIRED_DATE")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SLIP_COMMENT")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SLIP_COMMENT")
+                        .HasColumnType("int");
 
                     b.Property<string>("UPDATER")
                         .HasColumnType("nvarchar(max)");
@@ -224,8 +225,6 @@ namespace QLBH.Migrations
                     b.HasKey("ORDER_NO");
 
                     b.HasIndex("CUST_CODE");
-
-                    b.HasIndex("DEPT_CODE");
 
                     b.HasIndex("EMP_CODE");
 
@@ -290,12 +289,6 @@ namespace QLBH.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QLBH.Models.Entities.Department", "Department")
-                        .WithMany()
-                        .HasForeignKey("DEPT_CODE")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("QLBH.Models.Employee", "Employee")
                         .WithMany()
                         .HasForeignKey("EMP_CODE")
@@ -309,8 +302,6 @@ namespace QLBH.Migrations
                         .IsRequired();
 
                     b.Navigation("Customer");
-
-                    b.Navigation("Department");
 
                     b.Navigation("Employee");
 
