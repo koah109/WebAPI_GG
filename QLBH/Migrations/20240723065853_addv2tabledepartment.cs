@@ -5,7 +5,7 @@
 namespace QLBH.Migrations
 {
     /// <inheritdoc />
-    public partial class addv2tabledepartment : Migration
+    public partial class Addv2tabledepartment : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

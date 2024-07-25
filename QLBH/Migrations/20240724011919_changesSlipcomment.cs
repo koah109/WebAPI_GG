@@ -5,7 +5,7 @@
 namespace QLBH.Migrations
 {
     /// <inheritdoc />
-    public partial class changesSlipcomment : Migration
+    public partial class ChangesSlipcomment : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

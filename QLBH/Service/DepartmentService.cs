@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
 using QLBH.Interface;
 using QLBH.Models;
@@ -25,7 +26,7 @@ namespace QLBH.Service
         {
             var dept = new Department()
             {
-                DEPT_NUMBER = request.DEPT_NAME,
+                DEPT_NAME = request.DEPT_NAME,
 
                 ADDRESS = request.ADDRESS,
             };
@@ -40,9 +41,16 @@ namespace QLBH.Service
             if (dept != null)
             {
                 _context.DEPARTMENT.Remove(dept);
-                _context.SaveChangesAsync();
+                Task<int> task = _context.SaveChangesAsync();
             }
             return dept;
+        }
+
+        public Task<Department> UpdateDepartment(Department request)
+        {
+            _context.Entry(request).State = EntityState.Modified;
+            _context.SaveChanges();
+            return Task.FromResult(request);
         }
 
     }

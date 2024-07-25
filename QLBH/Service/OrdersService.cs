@@ -17,22 +17,35 @@ namespace QLBH.Service
             _context = context;
         }
 
-        public async Task<ORDER_DETAILS> PostOrders(OrderRequest request)
+        public async Task<ORDER_DETAILS> PostOrders(OrderRequest request, OrderDetailRequest drequest)
         {
-            
-            var order_detail = new OrderDetailRequest();
-            var order = new ORDER_DETAILS
+
+            var order = new Orders
             {
-                PROD_CODE = order_detail.PROD_CODE,
-
-                
-                DELIVERY_DATE = DateTime.Now,
-                UPDATE_DATE = DateTime.Now,
+                DEPT_CODE = 1,
+                CUST_CODE = 6,
+                EMP_CODE = 4,
+                WH_CODE = 1,
+                CMP_TAX = 15,
+                SLIP_COMMENT = "Quá tốt",
             };
+            var orders = new ORDER_DETAILS
+            {
+                PROD_CODE = drequest.PROD_CODE,
+                //ORDER_NO = order.ORDER_NO,
+            };
+            _context.ORDERS.Add(order);
+            _context.ORDER_DETAILS.Add(orders);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Có lỗi xảy ra khi lưu đơn hàng", ex);
+            }
+            return orders;
 
-            _context.ORDER_DETAILS.Add(order);
-            await _context.SaveChangesAsync();
-            return order;
 
         }
 
@@ -41,16 +54,15 @@ namespace QLBH.Service
             return await _context.ORDERS.ToListAsync();
         }
 
+
         public async  Task<Orders> DeleteOrderById(int id)
         {
             Orders orders = await _context.ORDERS.Where(n => n.ORDER_NO == id).FirstOrDefaultAsync();
-
             if (orders != null)
             {
                 _context.ORDERS.Remove(orders);
                 await _context.SaveChangesAsync();
             }
-
             return orders;
 
         }

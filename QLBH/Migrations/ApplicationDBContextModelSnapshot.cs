@@ -91,7 +91,7 @@ namespace QLBH.Migrations
                     b.Property<string>("ADDRESS")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DEPT_NUMBER")
+                    b.Property<string>("DEPT_NAME")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DEPT_CODE");

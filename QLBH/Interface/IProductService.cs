@@ -6,7 +6,7 @@ namespace QLBH.Interface
 {
     public interface IProductService
     {
-        Task<List<Product>> GetList(ProductRequest request);
+        Task<List<Product>> GetProdByName(ProductRequest request);
 
 
         Task<List<Product>> GetProd(int id);

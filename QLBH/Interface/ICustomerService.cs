@@ -12,5 +12,7 @@ namespace QLBH.Interface
         Task<Customer> PostCust(CustomerRequest request);
 
         Task<Customer> PutCust(Customer request);
+
+        Task<Customer> PatchCustomer(int id, CustomerRequest request);
     }
 }

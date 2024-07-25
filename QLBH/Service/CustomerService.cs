@@ -9,28 +9,65 @@ using QLBH.Models;
 
 namespace QLBH.Service
 {
-    public class CustomerService:ICustomerService
+    public class CustomerService : ICustomerService
     {
         private readonly ApplicationDBContext _context;
         public CustomerService(ApplicationDBContext context)
         {
             _context = context;
         }
+
         public async Task<List<Customer>> GetCustomer(int id)
         {
 
             return await _context.CUSTOMER.ToListAsync();
         }
 
+
+        public async Task<Customer> PatchCustomer(int id, CustomerRequest request)
+        {
+            var customer = await _context.CUSTOMER.FindAsync(id);
+            if (customer == null)
+            {
+                throw new KeyNotFoundException("Customer not found");
+            }
+            if (!string.IsNullOrEmpty(request.CUST_NAME))
+            {
+                customer.CUST_NAME = request.CUST_NAME;
+            }
+            if (!string.IsNullOrEmpty(request.ADDRESS))
+            {
+                customer.ADDRESS = request.ADDRESS;
+            }
+            if (!string.IsNullOrEmpty(request.PHONE))
+            {
+                customer.PHONE = request.PHONE;
+            }
+            _context.CUSTOMER.Update(customer);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new Exception("Cập nhật thông tin lỗi", ex);
+            }
+            return customer;
+        }
+
+
         public async Task<Customer> DeleteCus(int id)
         {
+
             Customer cust = await _context.CUSTOMER.Where(n => n.CUST_CODE == id).FirstOrDefaultAsync();
             if (cust != null)
             {
                 _context.CUSTOMER.Remove(cust);
-                _context.SaveChangesAsync();
+                Task<int> task =  _context.SaveChangesAsync();
+                
             }
             return cust;
+
         }
 
         public async Task<Customer> PostCust(CustomerRequest request)
@@ -52,11 +89,11 @@ namespace QLBH.Service
         }
 
 
-        public async Task<Customer> PutCust(Customer request)
+        public Task<Customer> PutCust(Customer request)
         {
             _context.Entry(request).State = EntityState.Modified;
             _context.SaveChanges();
-            return request;
+            return Task.FromResult(request);
         }
     }
 }

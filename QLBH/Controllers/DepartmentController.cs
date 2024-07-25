@@ -19,7 +19,7 @@ namespace QLBH.Controllers
 
         [HttpGet]
         [Route("get-list-byid")]
-        public async Task<IActionResult> GetDeptById(int id)
+        public async Task<IActionResult> GetDeptById([FromBody] int id)
         {
             var dept = await Department_Service.GetDepartmentById(id);
             var result = new BaseResultPagingResponse<Department>();
@@ -44,10 +44,18 @@ namespace QLBH.Controllers
             return CreatedAtAction(nameof(GetDeptById), new { id = dept.DEPT_CODE }, dept);
         }
 
+        [HttpPut]
+        [Route("update-dept")]
+        public async Task<IActionResult> PutDept([FromBody] Department request)
+        {
+            var dept = await Department_Service.UpdateDepartment(request);
+            return Ok(dept);
+        }
+
 
         [HttpDelete]
         [Route("delete-byid")]
-        public async Task<IActionResult> DeleteDept(int id)
+        public async Task<IActionResult> DeleteDept([FromBody] int id)
         {
             var dept = await Department_Service.DeleteDepartment(id);
             return Ok(dept);

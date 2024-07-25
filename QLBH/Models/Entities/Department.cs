@@ -9,7 +9,7 @@ namespace QLBH.Models.Entities
         [Key]
         public int DEPT_CODE {  get; set; }
 
-        public string? DEPT_NUMBER { get;set; }
+        public string? DEPT_NAME { get;set; }
 
         public string? ADDRESS {  get; set; }
     }

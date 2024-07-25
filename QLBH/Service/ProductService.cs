@@ -17,12 +17,12 @@ namespace QLBH.Service
 
         }
 
-        public async Task<List<Product>> GetList(ProductRequest request)
+        public async Task<List<Product>> GetProdByName(ProductRequest request)
         {
             var prod = _context.PRODUCT.AsQueryable();
             if (request.PROD_NAME != null)
             {
-                prod = prod.Where(n => n.PROD_NAME.Contains(request.PROD_NAME));
+                prod = prod.Where(predicate: n => n.PROD_NAME.Contains(request.PROD_NAME));
             }
             return await prod.ToListAsync();
             //var data = await prod.ToListAsync();
@@ -52,28 +52,24 @@ namespace QLBH.Service
             return order;
         }
 
-        public async Task<Product> PutProductById(Product response)
+        public Task<Product> PutProductById(Product request)
         {
-            _context.Entry(response).State = EntityState.Modified;
+            _context.Entry(request).State = EntityState.Modified;
             _context.SaveChanges();
-            return  response;
+            return  Task.FromResult(request);
 
         }
 
 
         public async Task<Product> DeleteProductById(int id)
         {
-            Product product = _context.PRODUCT.FirstOrDefault(n => n.PROD_CODE == id);
+            Product product = await _context.PRODUCT.Where(n => n.PROD_CODE == id).FirstOrDefaultAsync();
             if (product != null)
             {
                 _context.PRODUCT.Remove(product);
-                _context.SaveChanges();
-                return product;
+                Task<int> task = _context.SaveChangesAsync();
             }
-            else
-            {
-                return null;
-            }
+            return product;
         }
     }
 }

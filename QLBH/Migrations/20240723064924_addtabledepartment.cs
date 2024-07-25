@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace QLBH.Migrations
 {
     /// <inheritdoc />
-    public partial class addtabledepartment : Migration
+    public partial class Addtabledepartment : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

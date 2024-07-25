@@ -10,5 +10,7 @@ namespace QLBH.Interface
         Task<Department> PostDepartment(DepartmentRequest request);
 
         Task<Department> DeleteDepartment(int id);
+
+        Task<Department> UpdateDepartment(Department request);
     }
 }

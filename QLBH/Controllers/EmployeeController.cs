@@ -20,7 +20,7 @@ namespace QLBH.Controllers
 
         [HttpGet]
         [Route("get-list-employee")]
-        public async Task<IActionResult> GetEmpById(int id)
+        public async Task<IActionResult> GetEmpById([FromBody] int id)
         {
             var emp = await Emp_Service.GetEmployee(id);
             var result = new BaseResultPagingResponse<Employee>();
@@ -45,11 +45,19 @@ namespace QLBH.Controllers
             return CreatedAtAction(nameof(GetEmpById), new { id = emp.EMP_CODE  }, emp);
         }
 
+        [HttpPut]
+        [Route("update-employee")]
+        public async Task<IActionResult> PutEmployee(Employee request)
+        {
+            var cust = await Emp_Service.UpdateEmployee(request);
+            return Ok(cust);
+        }
+
 
 
         [HttpDelete]
         [Route("delete-employee")]
-        public async Task<IActionResult> DeleteEmployee(int id)
+        public async Task<IActionResult> DeleteEmployee([FromBody] int id)
         {
             var emp = await Emp_Service.DeleteEmployee(id);
             return Ok(emp);

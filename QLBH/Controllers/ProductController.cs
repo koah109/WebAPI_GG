@@ -17,10 +17,10 @@ namespace QLBH.Controllers
 
         //todo api search sản phẩm theo tên 
         [HttpGet]
-        [Route("get-list-product")]
-        public IActionResult GetListProd(ProductRequest request)
+        [Route("get-product-byname")]
+        public IActionResult SearchProdByName([FromBody] ProductRequest request)
         {
-            var prod = Product_Service.GetList(request);
+            var prod = Product_Service.GetProdByName(request);
             var result = new BaseResultPagingResponse<Product>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -33,7 +33,7 @@ namespace QLBH.Controllers
         [HttpGet]
         [Route("get-id-product")]
 
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById([FromBody] int id)
         {
             var order = await Product_Service.GetProd(id);
             var result = new BaseResultPagingResponse<Product>();
@@ -61,7 +61,7 @@ namespace QLBH.Controllers
 
         [HttpPut]
         [Route("update-product")]
-        public async Task<IActionResult> PutProd(Product products)
+        public async Task<IActionResult> PutProd([FromBody] Product products)
         {
             var product = await Product_Service.PutProductById(products);
             return Ok(product);
@@ -70,7 +70,7 @@ namespace QLBH.Controllers
 
         [HttpDelete]
         [Route("delete-product")]
-        public async Task<IActionResult> DeleteProd(int products)
+        public async Task<IActionResult> DeleteProd([FromBody] int products)
         {
             var product = await Product_Service.DeleteProductById(products);
             return Ok(product);

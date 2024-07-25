@@ -38,6 +38,13 @@ namespace QLBH.Service
             return emp;
         }
 
+        public  Task<Employee> UpdateEmployee(Employee request)
+        {
+            _context.Entry(request).State = EntityState.Modified;
+            _context.SaveChanges();
+            return Task.FromResult(request);
+        }
+
 
         public async Task<Employee> DeleteEmployee(int id)
         {
@@ -45,7 +52,7 @@ namespace QLBH.Service
             if (emp != null)
             {
                 _context.EMPLOYEE.Remove(emp);
-                _context.SaveChangesAsync();
+                Task<int> task = _context.SaveChangesAsync();
             }
             return emp;
         }

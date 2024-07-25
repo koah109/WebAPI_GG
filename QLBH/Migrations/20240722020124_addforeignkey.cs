@@ -5,7 +5,7 @@
 namespace QLBH.Migrations
 {
     /// <inheritdoc />
-    public partial class addforeignkey : Migration
+    public partial class Addforeignkey : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

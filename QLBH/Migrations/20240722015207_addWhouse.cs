@@ -5,7 +5,7 @@
 namespace QLBH.Migrations
 {
     /// <inheritdoc />
-    public partial class addWhouse : Migration
+    public partial class AddWhouse : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

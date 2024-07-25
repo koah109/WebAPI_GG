@@ -13,7 +13,7 @@ namespace QLBH.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
     [Migration("20240723064924_addtabledepartment")]
-    partial class addtabledepartment
+    partial class Addtabledepartment
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

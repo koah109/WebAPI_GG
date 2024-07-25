@@ -12,8 +12,8 @@ using QLBH.Data;
 namespace QLBH.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20240724011919_changesSlipcomment")]
-    partial class ChangesSlipcomment
+    [Migration("20240724064104_ChangesCollumDept")]
+    partial class ChangesCollumDept
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,7 +94,7 @@ namespace QLBH.Migrations
                     b.Property<string>("ADDRESS")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DEPT_NUMBER")
+                    b.Property<string>("DEPT_NAME")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DEPT_CODE");

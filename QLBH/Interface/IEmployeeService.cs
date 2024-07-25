@@ -9,6 +9,8 @@ namespace QLBH.Interface
 
         Task<Employee> PostEmployee(EmployeeRequest request);
 
+        Task<Employee> UpdateEmployee(Employee request);
+
         Task<Employee> DeleteEmployee(int id);
     }
 }

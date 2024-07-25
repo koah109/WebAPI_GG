@@ -13,7 +13,7 @@ namespace QLBH.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
     [Migration("20240722020124_addforeignkey")]
-    partial class addforeignkey
+    partial class Addforeignkey
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
