@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using QLBH.AutoMapper;
 using QLBH.Models;
 using QLBH.Models.Entities;
 
@@ -25,9 +26,10 @@ namespace QLBH.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=ADMIN;Database=MyDB;Trusted_Connection=True; MultipleActiveResultSets=true;TrustServerCertificate=True");
+            
         }
-
         
+
 
 
 

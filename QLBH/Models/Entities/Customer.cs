@@ -10,17 +10,28 @@ namespace QLBH.Models
         [JsonPropertyName("cust_code")]
         public int CUST_CODE { get; set; }
 
+
         [JsonPropertyName("cust_name")]
         public string? CUST_NAME { get; set; }
 
+
+        [JsonPropertyName("address")]
         public string? ADDRESS { get;   set;}
 
-        public string? PHONE {  get; set;}  
 
+        [JsonPropertyName("phone")]
+        public string? PHONE {  get; set;}
+
+
+        [JsonPropertyName("email")]
         public string? EMAIL {  get; set;}
-        
+
+
+        [JsonPropertyName("update_date")]
         public DateTime? UPDATE_DATE { get; set; }
 
+
+        [JsonPropertyName("updater")]
         public string? UPDATER { get; set; }
     }
 }

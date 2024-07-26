@@ -5,7 +5,7 @@ namespace QLBH.Interface
 {
     public interface IOrdersService
     {
-        Task<ORDER_DETAILS> PostOrders(OrderDetailRequest drequest);
+        Task<Orders> PostOrders(OrderRequest request);
 
         Task<List<Orders>> GetOrderById(int id);
 

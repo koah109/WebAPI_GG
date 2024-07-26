@@ -3,8 +3,52 @@
   "WorkspaceRootPath": "D:\\QLBH\\WebAPI_GG\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\entityframework\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\entityframework\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\automapper\\mapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\automapper\\mapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\service\\ordersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\service\\ordersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\models\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\models\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\models\\request\\orderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\models\\request\\orderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\interface\\iordersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\interface\\iordersservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\models\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\models\\request\\orderdetailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\models\\request\\orderdetailrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\service\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\service\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\service\\departmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,14 +59,6 @@
       "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\service\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\models\\request\\orderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\models\\request\\orderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,16 +67,8 @@
       "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\service\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\service\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\models\\request\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\models\\request\\productrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\entityframework\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|solutionrelative:qlbh\\entityframework\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40438CA9-272D-4BA4-A5B1-AACA74071054}|QLBH\\QLBH.csproj|d:\\qlbh\\webapi_gg\\qlbh\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,47 +114,167 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\appsettings.json",
+              "RelativeDocumentMoniker": "QLBH\\appsettings.json",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\appsettings.json",
+              "RelativeToolTip": "QLBH\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-26T04:13:10.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Program.cs",
+              "RelativeDocumentMoniker": "QLBH\\Program.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Program.cs",
+              "RelativeToolTip": "QLBH\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAArwBYAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T04:09:15.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Mapping.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\AutoMapper\\Mapping.cs",
+              "RelativeDocumentMoniker": "QLBH\\AutoMapper\\Mapping.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\AutoMapper\\Mapping.cs",
+              "RelativeToolTip": "QLBH\\AutoMapper\\Mapping.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAkwCgAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T03:06:13.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "QLBH\\Models\\Entities\\Customer.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Entities\\Customer.cs",
+              "RelativeToolTip": "QLBH\\Models\\Entities\\Customer.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACIAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T02:55:53.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "OrderRequest.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Request\\OrderRequest.cs",
               "RelativeDocumentMoniker": "QLBH\\Models\\Request\\OrderRequest.cs",
               "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Request\\OrderRequest.cs",
               "RelativeToolTip": "QLBH\\Models\\Request\\OrderRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAdAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAAAsAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T09:17:17.379Z"
+              "WhenOpened": "2024-07-25T09:17:17.379Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\EmployeeService.cs",
               "RelativeDocumentMoniker": "QLBH\\Service\\EmployeeService.cs",
               "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\EmployeeService.cs",
               "RelativeToolTip": "QLBH\\Service\\EmployeeService.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAqwDIAAAAAAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAiwDIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T08:44:24.974Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DepartmentService.cs",
-              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\DepartmentService.cs",
-              "RelativeDocumentMoniker": "QLBH\\Service\\DepartmentService.cs",
-              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\DepartmentService.cs",
-              "RelativeToolTip": "QLBH\\Service\\DepartmentService.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAACgAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T08:36:46.212Z"
+              "WhenOpened": "2024-07-25T08:44:24.974Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ApplicationDBContext.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\EntityFramework\\ApplicationDBContext.cs",
+              "RelativeDocumentMoniker": "QLBH\\EntityFramework\\ApplicationDBContext.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\EntityFramework\\ApplicationDBContext.cs",
+              "RelativeToolTip": "QLBH\\EntityFramework\\ApplicationDBContext.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAuwB4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T06:46:22.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OrderDetailRequest.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Request\\OrderDetailRequest.cs",
+              "RelativeDocumentMoniker": "QLBH\\Models\\Request\\OrderDetailRequest.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Request\\OrderDetailRequest.cs",
+              "RelativeToolTip": "QLBH\\Models\\Request\\OrderDetailRequest.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAiwCkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T02:22:42.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "QLBH\\Models\\Entities\\Product.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Entities\\Product.cs",
+              "RelativeToolTip": "QLBH\\Models\\Entities\\Product.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T02:36:07.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IOrdersService.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Interface\\IOrdersService.cs",
+              "RelativeDocumentMoniker": "QLBH\\Interface\\IOrdersService.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Interface\\IOrdersService.cs",
+              "RelativeToolTip": "QLBH\\Interface\\IOrdersService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-26T02:38:36.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrdersService.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\OrdersService.cs",
+              "RelativeDocumentMoniker": "QLBH\\Service\\OrdersService.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\OrdersService.cs",
+              "RelativeToolTip": "QLBH\\Service\\OrdersService.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAkwDYAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-15T03:45:26.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "QLBH\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "QLBH\\Controllers\\OrdersController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAIAwwBsAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-23T02:43:43.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "CustomerService.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\CustomerService.cs",
               "RelativeDocumentMoniker": "QLBH\\Service\\CustomerService.cs",
@@ -138,32 +286,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrdersService.cs",
-              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\OrdersService.cs",
-              "RelativeDocumentMoniker": "QLBH\\Service\\OrdersService.cs",
-              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\OrdersService.cs",
-              "RelativeToolTip": "QLBH\\Service\\OrdersService.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwB8AAAAnAAAA",
+              "DocumentIndex": 12,
+              "Title": "DepartmentService.cs",
+              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\DepartmentService.cs",
+              "RelativeDocumentMoniker": "QLBH\\Service\\DepartmentService.cs",
+              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\DepartmentService.cs",
+              "RelativeToolTip": "QLBH\\Service\\DepartmentService.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACgAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-15T03:45:26.939Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-25T08:36:46.212Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrdersController.cs",
-              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\OrdersController.cs",
-              "RelativeDocumentMoniker": "QLBH\\Controllers\\OrdersController.cs",
-              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\OrdersController.cs",
-              "RelativeToolTip": "QLBH\\Controllers\\OrdersController.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAA2wBsAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-23T02:43:43.306Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "QLBH\\Controllers\\CustomerController.cs",
@@ -175,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "ProductService.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Service\\ProductService.cs",
               "RelativeDocumentMoniker": "QLBH\\Service\\ProductService.cs",
@@ -187,7 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "ProductRequest.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Models\\Request\\ProductRequest.cs",
               "RelativeDocumentMoniker": "QLBH\\Models\\Request\\ProductRequest.cs",
@@ -199,19 +334,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApplicationDBContext.cs",
-              "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\EntityFramework\\ApplicationDBContext.cs",
-              "RelativeDocumentMoniker": "QLBH\\EntityFramework\\ApplicationDBContext.cs",
-              "ToolTip": "D:\\QLBH\\WebAPI_GG\\QLBH\\EntityFramework\\ApplicationDBContext.cs",
-              "RelativeToolTip": "QLBH\\EntityFramework\\ApplicationDBContext.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAqwB0AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-25T06:46:22.308Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 19,
               "Title": "DepartmentController.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\DepartmentController.cs",
               "RelativeDocumentMoniker": "QLBH\\Controllers\\DepartmentController.cs",
@@ -223,7 +346,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "EmployeeController.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\EmployeeController.cs",
               "RelativeDocumentMoniker": "QLBH\\Controllers\\EmployeeController.cs",
@@ -235,7 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "ProductController.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "QLBH\\Controllers\\ProductController.cs",
@@ -247,7 +370,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 20,
               "Title": "IProductService.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Interface\\IProductService.cs",
               "RelativeDocumentMoniker": "QLBH\\Interface\\IProductService.cs",
@@ -259,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "20240723063607_adddeparsasss.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Migrations\\20240723063607_adddeparsasss.cs",
               "RelativeDocumentMoniker": "QLBH\\Migrations\\20240723063607_adddeparsasss.cs",
@@ -271,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 23,
               "Title": "20240723063505_adddeparsass.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Migrations\\20240723063505_adddeparsass.cs",
               "RelativeDocumentMoniker": "QLBH\\Migrations\\20240723063505_adddeparsass.cs",
@@ -283,7 +406,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 21,
               "Title": "20240723063904_addnew.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Migrations\\20240723063904_addnew.cs",
               "RelativeDocumentMoniker": "QLBH\\Migrations\\20240723063904_addnew.cs",
@@ -295,7 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 24,
               "Title": "20240723063433_adddeparsas.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\Migrations\\20240723063433_adddeparsas.cs",
               "RelativeDocumentMoniker": "QLBH\\Migrations\\20240723063433_adddeparsas.cs",
@@ -307,7 +430,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 25,
               "Title": "AutoFac.cs",
               "DocumentMoniker": "D:\\QLBH\\WebAPI_GG\\QLBH\\App_Start\\AutoFac.cs",
               "RelativeDocumentMoniker": "QLBH\\App_Start\\AutoFac.cs",

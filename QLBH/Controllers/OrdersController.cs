@@ -19,13 +19,13 @@ namespace QLBH.Controllers
 
         [HttpPost]
         [Route("post-orders")]
-        public async Task<IActionResult> OrderProduct([FromBody] OrderDetailRequest drequest)
+        public async Task<IActionResult> OrderProduct([FromBody] OrderRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var orderd = await Order_service.PostOrders(drequest);
+            var orderd = await Order_service.PostOrders(request);
             return Ok(null);
             
         }

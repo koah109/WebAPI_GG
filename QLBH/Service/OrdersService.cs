@@ -18,54 +18,50 @@ namespace QLBH.Service
             _context = context;
         }
 
-        public async Task<ORDER_DETAILS> PostOrders(OrderDetailRequest drequest)
+        public async Task<Orders> PostOrders(OrderRequest request)
         {
 
             var order = new Orders
             {
-                DEPT_CODE = 1,
-                CUST_CODE = 6,
-                EMP_CODE = 4,
-                WH_CODE = 1,
-                CMP_TAX = 15,
+                DEPT_CODE = request.DEPT_CODE,
+                CUST_CODE = request.CUST_CODE,
+                EMP_CODE = request.EMP_CODE,
+                WH_CODE = request.WH_CODE,
+                CMP_TAX = request.CMP_TAX,
+                SLIP_COMMENT = request.SLIP_COMMENT,
+                
             };
             _context.ORDERS.Add(order);
-            var prod = await _context.PRODUCT
-                .Where(p => p.PROD_CODE == drequest.PROD_CODE)
-                .FirstOrDefaultAsync();
-            if (prod == null)
-            {
-                throw new Exception("Không có sản phẩm để order");
-            }
+            _context.SaveChanges();
 
-            else    try
+            foreach (var detail in request.OrderDetails)
+            {
+                var prod = await _context.PRODUCT
+                .Where(p => p.PROD_CODE == detail.PROD_CODE)
+                .FirstOrDefaultAsync();
+                var ordersDetails = new ORDER_DETAILS
                 {
-                    await _context.SaveChangesAsync();
-                    var ordersDetails = new ORDER_DETAILS
-                    {
-                        PROD_CODE = drequest.PROD_CODE,
-                        PROD_NAME = prod.PROD_NAME,
-                        UNITPRICE = prod.UNITPRICE,
-                        QUANTITY = drequest.QUANTITY,
-                        CMP_TAX_RATE = order.CMP_TAX,
-                        RESERVE_QTY = prod.STOCK_QTY - drequest.QUANTITY,
-                        DELIVERED_QTY = drequest.QUANTITY,
-                        DELIVERY_ORDER_QTY = drequest.QUANTITY,
-                        UPDATER = "Admin",
-                        DELIVERY_DATE = DateTime.Now,
-                        UPDATE_DATE = DateTime.Now,
-                        ORDER_NO = order.ORDER_NO,
-                    };
-                    _context.ORDER_DETAILS.Add(ordersDetails);
-                    prod.STOCK_QTY -= drequest.QUANTITY;
-                    await _context.SaveChangesAsync();
-                    return ordersDetails;
-                }
-                catch (DbUpdateException ex)
-                {
-                    throw new Exception("Có lỗi xảy ra khi lưu đơn hàng", ex);
-                }
-            
+
+                    PROD_CODE = detail.PROD_CODE,
+                    PROD_NAME = prod.PROD_NAME,
+                    UNITPRICE = prod.UNITPRICE,
+                    QUANTITY = detail.QUANTITY,
+                    CMP_TAX_RATE = order.CMP_TAX,
+                    RESERVE_QTY = prod.STOCK_QTY - detail.QUANTITY,
+                    DELIVERED_QTY = detail.QUANTITY,
+                    DELIVERY_ORDER_QTY = detail.QUANTITY,
+                    UPDATER = "Admin",
+                    DELIVERY_DATE = DateTime.Now,
+                    UPDATE_DATE = DateTime.Now,
+                    ORDER_NO = order.ORDER_NO,
+                };
+                _context.ORDER_DETAILS.Add(ordersDetails);
+                prod.STOCK_QTY -= detail.QUANTITY;
+                _context.PRODUCT.Update(prod);
+            }
+                 await _context.SaveChangesAsync();
+                 return order;
+               
         }
 
         public async Task<List<Orders>> GetOrderById(int id)

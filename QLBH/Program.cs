@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
 using QLBH.Interface;
 using QLBH.Service;
-using QLBH.App_Start;
+using QLBH.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +18,10 @@ builder.Services.AddScoped<IOrdersService, OrdersService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+
+// Auto Mapper
+//builder.Services.AddAutoMapper(typeof(Mapping));
+
 // MAP SERVICE
 //AutoFac.Res(builder.Services);
 
@@ -30,6 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 
