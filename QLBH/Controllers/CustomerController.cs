@@ -18,7 +18,7 @@ namespace QLBH.Controllers
 
         [HttpGet]
         [Route("list-customer")]
-        public async Task<IActionResult> getListCust(int id)
+        public async Task<IActionResult> GetListCust(int id)
         {
             var cust = await Customer_service.GetCustomer(id);
             var result = new BaseResultPagingResponse<Customer>();
@@ -31,8 +31,8 @@ namespace QLBH.Controllers
         }
 
         [HttpGet]
-        [Route("list-cust-byid")]
-        public async Task<IActionResult> CustByID([FromBody] int id)
+        [Route("list-cust/{id}")]
+        public async Task<IActionResult> CustByID(int id)
         {
             var cust = await Customer_service.GetCustomer(id);
             var result = new BaseResultPagingResponse<Customer>();
@@ -87,7 +87,7 @@ namespace QLBH.Controllers
 
         [HttpDelete]
         [Route("delete-customer")]
-        public async Task<IActionResult> DelCust([FromBody] int id)
+        public async Task<IActionResult> DelCust(int id)
         {
             var cust = await Customer_service.DeleteCus(id);
             return Ok(cust);

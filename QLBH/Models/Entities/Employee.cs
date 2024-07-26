@@ -13,7 +13,7 @@ namespace QLBH.Models
 
         public string? POSITION {  get; set; }
 
-        public DateTime HIRE_DATE { get; set; }
+        public DateTime? HIRE_DATE { get; set; }
 
         public string? UPDATER {  get; set; }
 

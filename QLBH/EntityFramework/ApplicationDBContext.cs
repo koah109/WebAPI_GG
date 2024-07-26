@@ -26,6 +26,10 @@ namespace QLBH.Data
         {
             optionsBuilder.UseSqlServer("Server=ADMIN;Database=MyDB;Trusted_Connection=True; MultipleActiveResultSets=true;TrustServerCertificate=True");
         }
+
         
+
+
+
     }
 }

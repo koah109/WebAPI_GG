@@ -19,7 +19,7 @@ namespace QLBH.Models
 
         public string? EMAIL {  get; set;}
         
-        public DateTime UPDATE_DATE { get; set; }
+        public DateTime? UPDATE_DATE { get; set; }
 
         public string? UPDATER { get; set; }
     }

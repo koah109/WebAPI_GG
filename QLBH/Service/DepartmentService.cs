@@ -37,12 +37,14 @@ namespace QLBH.Service
 
         public async Task<Department> DeleteDepartment(int id)
         {
+            
             Department dept = await _context.DEPARTMENT.Where(n => n.DEPT_CODE == id).FirstOrDefaultAsync();
-            if (dept != null)
+            if (dept == null)
             {
-                _context.DEPARTMENT.Remove(dept);
-                Task<int> task = _context.SaveChangesAsync();
+                throw new Exception("Không có phòng ban để xóa");
             }
+            _context.DEPARTMENT.Remove(dept);
+            await _context.SaveChangesAsync();
             return dept;
         }
 

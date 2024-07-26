@@ -48,12 +48,14 @@ namespace QLBH.Service
 
         public async Task<Employee> DeleteEmployee(int id)
         {
+
             Employee emp = await _context.EMPLOYEE.Where(n => n.EMP_CODE == id).FirstOrDefaultAsync();
-            if (emp != null)
+            if (emp == null)
             {
-                _context.EMPLOYEE.Remove(emp);
-                Task<int> task = _context.SaveChangesAsync();
+                throw new Exception("Không có nhân viên để xóa");
             }
+            _context.EMPLOYEE.Remove(emp);
+            Task<int> task = _context.SaveChangesAsync();
             return emp;
         }
     }

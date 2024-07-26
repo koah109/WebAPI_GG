@@ -10,15 +10,15 @@ namespace QLBH.DTO
 
 
         [JsonPropertyName("unitprice")]
-        public float? UNITPRICE { get; set; }
+        public float UNITPRICE { get; set; }
 
 
         [JsonPropertyName("stock_qty")]
-        public int? STOCK_QTY { get; set; }
+        public int STOCK_QTY { get; set; }
 
 
         [JsonPropertyName("wh_code")]
-        public int? WH_CODE { get; set; }
+        public int WH_CODE { get; set; }
 
 
     }

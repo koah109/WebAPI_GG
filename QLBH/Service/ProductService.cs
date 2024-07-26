@@ -24,9 +24,7 @@ namespace QLBH.Service
             {
                 prod = prod.Where(predicate: n => n.PROD_NAME.Contains(request.PROD_NAME));
             }
-            return await prod.ToListAsync();
-            //var data = await prod.ToListAsync();
-            //return data;
+            return await prod.ToListAsync();         
         }
 
         public async Task<List<Product>> GetProd(int id)
@@ -64,11 +62,12 @@ namespace QLBH.Service
         public async Task<Product> DeleteProductById(int id)
         {
             Product product = await _context.PRODUCT.Where(n => n.PROD_CODE == id).FirstOrDefaultAsync();
-            if (product != null)
+            if (product == null)
             {
-                _context.PRODUCT.Remove(product);
-                Task<int> task = _context.SaveChangesAsync();
+                throw new Exception("Không có sản phẩm để xóa");
             }
+            _context.PRODUCT.Remove(product);
+            Task<int> task = _context.SaveChangesAsync();
             return product;
         }
     }

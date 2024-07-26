@@ -19,7 +19,7 @@ namespace QLBH.Controllers
 
         [HttpGet]
         [Route("get-list-byid")]
-        public async Task<IActionResult> GetDeptById([FromBody] int id)
+        public async Task<IActionResult> GetDeptById(int id)
         {
             var dept = await Department_Service.GetDepartmentById(id);
             var result = new BaseResultPagingResponse<Department>();
@@ -55,7 +55,7 @@ namespace QLBH.Controllers
 
         [HttpDelete]
         [Route("delete-byid")]
-        public async Task<IActionResult> DeleteDept([FromBody] int id)
+        public async Task<IActionResult> DeleteDept(int id)
         {
             var dept = await Department_Service.DeleteDepartment(id);
             return Ok(dept);

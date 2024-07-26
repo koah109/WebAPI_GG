@@ -1,6 +1,7 @@
 ﻿using Azure;
 using Azure.Core;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
 using QLBH.DTO;
@@ -58,14 +59,14 @@ namespace QLBH.Service
 
         public async Task<Customer> DeleteCus(int id)
         {
-
-            Customer cust = await _context.CUSTOMER.Where(n => n.CUST_CODE == id).FirstOrDefaultAsync();
-            if (cust != null)
+            
+            var cust = await _context.CUSTOMER.Where(n => n.CUST_CODE == id).FirstOrDefaultAsync();
+            if (cust == null)
             {
-                _context.CUSTOMER.Remove(cust);
-                Task<int> task =  _context.SaveChangesAsync();
-                
+                throw new Exception("Không có khách hàng để xóa");
             }
+            _context.CUSTOMER.Remove(cust);
+            await _context.SaveChangesAsync();
             return cust;
 
         }

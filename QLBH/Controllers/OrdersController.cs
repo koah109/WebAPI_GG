@@ -19,14 +19,14 @@ namespace QLBH.Controllers
 
         [HttpPost]
         [Route("post-orders")]
-        public async Task<IActionResult> OrderProduct([FromBody] OrderRequest request,[FromBody] OrderDetailRequest drequest)
+        public async Task<IActionResult> OrderProduct([FromBody] OrderDetailRequest drequest)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var orderd = await Order_service.PostOrders(request, drequest);
-            return CreatedAtAction(nameof(GetById), new { id = orderd.ORDER_NO }, orderd);
+            var orderd = await Order_service.PostOrders(drequest);
+            return Ok(null);
             
         }
 
@@ -47,7 +47,7 @@ namespace QLBH.Controllers
 
         [HttpDelete]
         [Route("delete-orders")]
-        public async Task<IActionResult> DeleteOrder([FromBody] int id)
+        public async Task<IActionResult> DeleteOrder(int id)
         {
             var result = await Order_service.DeleteOrderById(id);
             if (result == null)
