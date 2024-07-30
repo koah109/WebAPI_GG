@@ -17,6 +17,7 @@ namespace QLBH.Models
 
         public string? UPDATER {  get; set; }
 
+        public ICollection<Orders>? Orders { get; set; }
 
     }
 }

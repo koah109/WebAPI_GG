@@ -1,4 +1,5 @@
-﻿using Azure;
+﻿using AutoMapper;
+using Azure;
 using Azure.Core;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,11 @@ namespace QLBH.Service
     public class CustomerService : ICustomerService
     {
         private readonly ApplicationDBContext _context;
-        public CustomerService(ApplicationDBContext context)
+        private readonly IMapper _mapper;
+        public CustomerService(ApplicationDBContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<List<Customer>> GetCustomer(int id)
@@ -74,16 +77,7 @@ namespace QLBH.Service
         public async Task<Customer> PostCust(CustomerRequest request)
         {
 
-            var cust = new Customer
-            {
-                EMAIL = request.EMAIL,
-                CUST_NAME = request.CUST_NAME,
-                PHONE = request.PHONE,
-                ADDRESS = request.ADDRESS,
-                UPDATER = "Admin",
-                UPDATE_DATE = DateTime.Now,
-            };
-
+            var cust = _mapper.Map<Customer>(request);
             _context.CUSTOMER.Add(cust);
             await _context.SaveChangesAsync();
             return cust;

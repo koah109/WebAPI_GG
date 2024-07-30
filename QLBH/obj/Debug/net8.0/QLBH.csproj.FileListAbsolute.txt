@@ -271,3 +271,4 @@ D:\QLBH\WebAPI_GG\QLBH\obj\Debug\net8.0\refint\QLBH.dll
 D:\QLBH\WebAPI_GG\QLBH\obj\Debug\net8.0\QLBH.pdb
 D:\QLBH\WebAPI_GG\QLBH\obj\Debug\net8.0\QLBH.genruntimeconfig.cache
 D:\QLBH\WebAPI_GG\QLBH\obj\Debug\net8.0\ref\QLBH.dll
+D:\QLBH\WebAPI_GG\QLBH\bin\Debug\net8.0\AutoMapper.dll

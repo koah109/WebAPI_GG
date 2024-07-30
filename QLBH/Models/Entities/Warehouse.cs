@@ -10,5 +10,9 @@ namespace QLBH.Models.Entities
         public string? WH_NAME { get; set; }
 
         public string? LOCATION { get; set; }
+
+        //public Product? Product { get; set; }
+
+        //public ICollection<Orders>? Orders { get; set; }
     }
 }

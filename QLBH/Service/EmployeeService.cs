@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
 using QLBH.DTO;
@@ -11,10 +12,11 @@ namespace QLBH.Service
     public class EmployeeService: IEmployeeService
     {
         private readonly ApplicationDBContext _context;
-
-        public EmployeeService(ApplicationDBContext dbContext)
+        private readonly IMapper _mapper;
+        public EmployeeService(ApplicationDBContext dbContext, IMapper mapper)
         {
             _context = dbContext;
+            _mapper = mapper;
         }
 
         public async Task<List<Employee>> GetEmployee(int id)
@@ -25,13 +27,7 @@ namespace QLBH.Service
 
         public async Task<Employee> PostEmployee([FromBody]EmployeeRequest request)
         {
-            var emp = new Employee
-            {
-                EMP_NAME = request.EMP_NAME,
-                POSITION = request.POSITION,
-                HIRE_DATE  = DateTime.Now,
-                UPDATER = "Admin",
-            };
+            var emp = _mapper.Map<Employee>(request);
 
             _context.EMPLOYEE.Add(emp);
             await _context.SaveChangesAsync();
@@ -55,7 +51,7 @@ namespace QLBH.Service
                 throw new Exception("Không có nhân viên để xóa");
             }
             _context.EMPLOYEE.Remove(emp);
-            Task<int> task = _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return emp;
         }
     }

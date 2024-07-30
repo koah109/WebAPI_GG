@@ -1,4 +1,5 @@
-﻿using Azure.Messaging;
+﻿using AutoMapper;
+using Azure.Messaging;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,53 +14,37 @@ namespace QLBH.Service
     public class OrdersService: IOrdersService
     {
         private readonly ApplicationDBContext _context;
-        public OrdersService(ApplicationDBContext context)
+        private readonly IMapper _mapper;
+        public OrdersService(ApplicationDBContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<Orders> PostOrders(OrderRequest request)
         {
 
-            var order = new Orders
-            {
-                DEPT_CODE = request.DEPT_CODE,
-                CUST_CODE = request.CUST_CODE,
-                EMP_CODE = request.EMP_CODE,
-                WH_CODE = request.WH_CODE,
-                CMP_TAX = request.CMP_TAX,
-                SLIP_COMMENT = request.SLIP_COMMENT,
-                
-            };
+            var order = _mapper.Map<Orders>(request);
+
             _context.ORDERS.Add(order);
             _context.SaveChanges();
 
-            foreach (var detail in request.OrderDetails)
+           /* foreach (var detail in request.OrderDetails)
             {
                 var prod = await _context.PRODUCT
                 .Where(p => p.PROD_CODE == detail.PROD_CODE)
                 .FirstOrDefaultAsync();
-                var ordersDetails = new ORDER_DETAILS
-                {
 
-                    PROD_CODE = detail.PROD_CODE,
-                    PROD_NAME = prod.PROD_NAME,
-                    UNITPRICE = prod.UNITPRICE,
-                    QUANTITY = detail.QUANTITY,
-                    CMP_TAX_RATE = order.CMP_TAX,
-                    RESERVE_QTY = prod.STOCK_QTY - detail.QUANTITY,
-                    DELIVERED_QTY = detail.QUANTITY,
-                    DELIVERY_ORDER_QTY = detail.QUANTITY,
-                    UPDATER = "Admin",
-                    DELIVERY_DATE = DateTime.Now,
-                    UPDATE_DATE = DateTime.Now,
-                    ORDER_NO = order.ORDER_NO,
-                };
-                _context.ORDER_DETAILS.Add(ordersDetails);
+                var orderDetail = _mapper.Map<ORDER_DETAILS>(prod);
+                orderDetail.ORDER_NO = order.ORDER_NO; // Ánh xạ khóa ngoại
+                orderDetail.QUANTITY = detail.QUANTITY; // Ánh xạ số lượng từ detail
+                _context.ORDER_DETAILS.Add(orderDetail);
+           /
+                Cập nhật số lượng tồn kho
                 prod.STOCK_QTY -= detail.QUANTITY;
                 _context.PRODUCT.Update(prod);
             }
-                 await _context.SaveChangesAsync();
+                 await _context.SaveChangesAsync();*/
                  return order;
                
         }

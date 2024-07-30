@@ -33,5 +33,7 @@ namespace QLBH.Models
 
         [JsonPropertyName("updater")]
         public string? UPDATER { get; set; }
+
+        public ICollection<Orders>? Orders { get; set; }
     }
 }

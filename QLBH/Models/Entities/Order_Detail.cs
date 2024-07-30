@@ -36,12 +36,15 @@ namespace QLBH.Models
 
         public string? UPDATER {  get; set; }
 
+        public Orders? Orders { get; set; }
 
-        [ForeignKey("ORDER_NO")]
+        public Product? Product { get; set; }
+
+/*        [ForeignKey("ORDER_NO")]
         public Orders? Orders { get; set; }
 
 
         [ForeignKey("PROD_CODE")]
-        public Product? Product { get; set; }
+        public Product? Product { get; set; }*/
     }
 }

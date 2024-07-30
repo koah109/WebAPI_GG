@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
 using QLBH.Interface;
@@ -11,9 +12,11 @@ namespace QLBH.Service
     public class DepartmentService : IDepartmentService
     {
         private readonly ApplicationDBContext _context;
-        public DepartmentService(ApplicationDBContext context)
+        private readonly IMapper _mapper;
+        public DepartmentService(ApplicationDBContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<List<Department>> GetDepartmentById(int id)
@@ -24,12 +27,7 @@ namespace QLBH.Service
 
         public async Task<Department> PostDepartment(DepartmentRequest request)
         {
-            var dept = new Department()
-            {
-                DEPT_NAME = request.DEPT_NAME,
-
-                ADDRESS = request.ADDRESS,
-            };
+            var dept = _mapper.Map<Department>(request);
             _context.DEPARTMENT.Add(dept);
             await _context.SaveChangesAsync();
             return dept;
@@ -37,7 +35,6 @@ namespace QLBH.Service
 
         public async Task<Department> DeleteDepartment(int id)
         {
-            
             Department dept = await _context.DEPARTMENT.Where(n => n.DEPT_CODE == id).FirstOrDefaultAsync();
             if (dept == null)
             {

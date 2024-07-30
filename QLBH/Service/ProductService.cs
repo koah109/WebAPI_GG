@@ -5,16 +5,17 @@ using QLBH.DTO;
 using QLBH.Models;
 using QLBH.Interface;
 using Microsoft.AspNetCore.Http.HttpResults;
+using AutoMapper;
 namespace QLBH.Service
 {
     public class ProductService : IProductService
     {
         private readonly ApplicationDBContext _context;
-
-        public ProductService(ApplicationDBContext context)
+        private readonly IMapper _mapper;
+        public ProductService(ApplicationDBContext context, IMapper mapper)
         {
             _context = context;
-
+            _mapper = mapper;
         }
 
         public async Task<List<Product>> GetProdByName(ProductRequest request)
@@ -35,15 +36,7 @@ namespace QLBH.Service
 
         public async Task<Product> PostProdById(ProductRequest request)
         {
-            var order = new Product
-            {
-                PROD_NAME = request.PROD_NAME,
-                STOCK_QTY = request.STOCK_QTY,
-                UNITPRICE = request.UNITPRICE,
-                WH_CODE = request.WH_CODE,
-                UPDATER = "ADMIN",
-                UPDATE_DATE = DateTime.Now,
-            };
+            var order = _mapper.Map<Product>(request); 
 
             _context.PRODUCT.Add(order);
             await _context.SaveChangesAsync();

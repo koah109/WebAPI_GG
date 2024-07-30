@@ -53,7 +53,6 @@ namespace QLBH.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             var product = await Product_Service.PostProdById(products);
             return CreatedAtAction(nameof(GetById), new { id = product.PROD_CODE }, product); //nameof(Lấy hàm get từ service)
         }
@@ -61,18 +60,18 @@ namespace QLBH.Controllers
 
         [HttpPut]
         [Route("update-product")]
-        public async Task<IActionResult> PutProd([FromBody] Product products)
+        public async Task<IActionResult> PutProd([FromBody] Product request)
         {
-            var product = await Product_Service.PutProductById(products);
+            var product = await Product_Service.PutProductById(request);
             return Ok(product);
         }
 
 
         [HttpDelete]
         [Route("delete-product")]
-        public async Task<IActionResult> DeleteProd(int products)
+        public async Task<IActionResult> DeleteProd(int id)
         {
-            var product = await Product_Service.DeleteProductById(products);
+            var product = await Product_Service.DeleteProductById(id);
             return Ok(product);
         }
     }

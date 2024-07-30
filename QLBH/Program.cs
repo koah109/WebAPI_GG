@@ -18,9 +18,9 @@ builder.Services.AddScoped<IOrdersService, OrdersService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IDepartmentService, DepartmentService>();
-
+builder.Services.AddScoped<IWarehouseService, WarehouseService>();
 // Auto Mapper
-//builder.Services.AddAutoMapper(typeof(Mapping));
+builder.Services.AddAutoMapper(typeof(Mapping));
 
 // MAP SERVICE
 //AutoFac.Res(builder.Services);

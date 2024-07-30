@@ -21,8 +21,12 @@ namespace QLBH.Models
 
         public int WH_CODE { get; set; }
 
-        [ForeignKey("WH_CODE")]
-        public Warehouse? Warehouse { get; set; }
+        //public ICollection<Warehouse>? Warehouse { get; set; }
+
+        public ICollection<ORDER_DETAILS>? Orderdetails { get; set; }
+
+        /* [ForeignKey("WH_CODE")]
+         public Warehouse? Warehouse { get; set; }*/
     }   
 
 }

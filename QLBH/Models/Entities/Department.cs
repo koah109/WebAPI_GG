@@ -12,5 +12,7 @@ namespace QLBH.Models.Entities
         public string? DEPT_NAME { get;set; }
 
         public string? ADDRESS {  get; set; }
+
+        public ICollection<Orders>? Orders { get; set; }
     }
 }

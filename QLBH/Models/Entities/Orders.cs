@@ -34,7 +34,7 @@ namespace QLBH.Models
         public string? UPDATER {  get; set; }
 
 
-        [ForeignKey("WH_CODE")]
+        /*[ForeignKey("WH_CODE")]
         public Warehouse? Warehouse { get; set; }
 
         [ForeignKey("CUST_CODE")]
@@ -44,8 +44,17 @@ namespace QLBH.Models
         public Employee? Employee { get; set; }
 
         [ForeignKey("DEPT_CODE")]
-        public Department? Department { get; set; }
+        public Department? Department { get; set; }*/
 
+        public ICollection<ORDER_DETAILS>? OrderDetails { get; set; }
+
+        public Customer? Customer { get; set; }
+
+        public Warehouse? Warehouse { get; set; }
+
+        public Employee? Employee { get; set; }
+
+        public Department? Department { get; set; }
 
 
     }
