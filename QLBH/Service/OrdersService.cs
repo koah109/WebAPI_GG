@@ -57,13 +57,6 @@ namespace QLBH.Service
 
         public async  Task<Orders> DeleteOrderById(int id)
         {
-            var orderDetails = await _context.ORDER_DETAILS
-            .Where(od => od.ORDER_NO == id)
-             .ToListAsync();
-            _context.ORDER_DETAILS.RemoveRange(orderDetails);
-            await _context.SaveChangesAsync();
-
-
             var order = await _context.ORDERS
             .Where(o => o.ORDER_NO == id)
             .FirstOrDefaultAsync();

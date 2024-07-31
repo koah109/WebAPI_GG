@@ -26,67 +26,68 @@ namespace QLBH.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=ADMIN;Database=MyDB;Trusted_Connection=True; MultipleActiveResultSets=true;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("Server=ADMIN;Database=NewDB;Trusted_Connection=True; MultipleActiveResultSets=true;TrustServerCertificate=True");
             
         }
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Product>()
-        //        .HasMany(p => p.Warehouse)
-        //        .WithOne(c => c.Product)
-        //        .HasForeignKey(c => c.WH_CODE)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //    base.OnModelCreating(modelBuilder);
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Cấu hình khóa ngoại từ Warehouse đến Product
+            modelBuilder.Entity<Warehouse>()
+                .HasMany(p => p.Product)
+                .WithOne(c => c.Warehouse)
+                .HasForeignKey(c => c.WH_CODE)
+                .OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
 
-        //    //Cấu hình khóa ngoại từ ORDER_DETAILS đến Orders
-        //    modelBuilder.Entity<Orders>()
-        //        .HasMany(p => p.OrderDetails)
-        //        .WithOne(c => c.Orders)
-        //        .HasForeignKey(c => c.ORDER_NO)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //    base.OnModelCreating(modelBuilder);
+            //Cấu hình khóa ngoại từ ORDER_DETAILS đến Orders
+            modelBuilder.Entity<Orders>()
+                .HasMany(p => p.OrderDetails)
+                .WithOne(c => c.Orders)
+                .HasForeignKey(c => c.ORDER_NO)
+                .OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
 
-        //    //Cấu hình khóa ngoại từ ORDER_DETAILS đến Product
-        //    modelBuilder.Entity<Product>()
-        //        .HasMany(p => p.Orderdetails)
-        //        .WithOne(c => c.Product)
-        //        .HasForeignKey(c => c.PROD_CODE)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //    base.OnModelCreating(modelBuilder);
+            //Cấu hình khóa ngoại từ ORDER_DETAILS đến Product
+            modelBuilder.Entity<Product>()
+                .HasMany(p => p.Orderdetails)
+                .WithOne(c => c.Product)
+                .HasForeignKey(c => c.PROD_CODE)
+                .OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
 
-        //    //Cấu hình khóa ngoại từ Orders đến Customer
-        //    modelBuilder.Entity<Customer>()
-        //        .HasMany(p => p.Orders)
-        //        .WithOne(c => c.Customer)
-        //        .HasForeignKey(c => c.CUST_CODE)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //    base.OnModelCreating(modelBuilder);
+            //Cấu hình khóa ngoại từ Orders đến Customer
+            modelBuilder.Entity<Customer>()
+                .HasMany(p => p.Orders)
+                .WithOne(c => c.Customer)
+                .HasForeignKey(c => c.CUST_CODE)
+                .OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
 
-        //    //Cấu hình khóa ngoại từ Orders đến Warehouse
-        //    modelBuilder.Entity<Warehouse>()
-        //        .HasMany(p => p.Orders)
-        //        .WithOne(c => c.Warehouse)
-        //        .HasForeignKey(c => c.WH_CODE)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //    base.OnModelCreating(modelBuilder);
+            //Cấu hình khóa ngoại từ Orders đến Warehouse
+            modelBuilder.Entity<Warehouse>()
+                .HasMany(p => p.Orders)
+                .WithOne(c => c.Warehouse)
+                .HasForeignKey(c => c.WH_CODE)
+                .OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
 
-        //    //Cấu hình khóa ngoại từ Orders đến Employee
-        //    modelBuilder.Entity<Employee>()
-        //        .HasMany(p => p.Orders)
-        //        .WithOne(c => c.Employee)
-        //        .HasForeignKey(c => c.EMP_CODE)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //    base.OnModelCreating(modelBuilder);
+            //Cấu hình khóa ngoại từ Orders đến Employee
+            modelBuilder.Entity<Employee>()
+                .HasMany(p => p.Orders)
+                .WithOne(c => c.Employee)
+                .HasForeignKey(c => c.EMP_CODE)
+                .OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
 
-        //    //Cấu hình khóa ngoại từ Orders đến Department
-        //    modelBuilder.Entity<Department>()
-        //        .HasMany(p => p.Orders)
-        //        .WithOne(c => c.Department)
-        //        .HasForeignKey(c => c.DEPT_CODE)
-        //        .OnDelete(DeleteBehavior.Cascade);
-        //    base.OnModelCreating(modelBuilder);
+            //Cấu hình khóa ngoại từ Orders đến Department
+            modelBuilder.Entity<Department>()
+                .HasMany(p => p.Orders)
+                .WithOne(c => c.Department)
+                .HasForeignKey(c => c.DEPT_CODE)
+                .OnDelete(DeleteBehavior.Cascade);
+            base.OnModelCreating(modelBuilder);
 
-        //}
+        }
 
 
 
