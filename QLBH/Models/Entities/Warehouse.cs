@@ -11,8 +11,8 @@ namespace QLBH.Models.Entities
 
         public string? LOCATION { get; set; }
 
-        //public Product? Product { get; set; }
+        public ICollection<Product>? Product { get; set; }
 
-        //public ICollection<Orders>? Orders { get; set; }
+        public ICollection<Orders>? Orders { get; set; }
     }
 }

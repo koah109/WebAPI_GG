@@ -107,7 +107,10 @@ namespace QLBH.Migrations
             modelBuilder.Entity("QLBH.Models.Entities.Warehouse", b =>
                 {
                     b.Property<int>("WH_CODE")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WH_CODE"));
 
                     b.Property<string>("LOCATION")
                         .HasColumnType("nvarchar(max)");
@@ -264,18 +267,9 @@ namespace QLBH.Migrations
 
                     b.HasKey("PROD_CODE");
 
+                    b.HasIndex("WH_CODE");
+
                     b.ToTable("PRODUCT");
-                });
-
-            modelBuilder.Entity("QLBH.Models.Entities.Warehouse", b =>
-                {
-                    b.HasOne("QLBH.Models.Product", "Product")
-                        .WithMany("Warehouse")
-                        .HasForeignKey("WH_CODE")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("QLBH.Models.ORDER_DETAILS", b =>
@@ -332,6 +326,17 @@ namespace QLBH.Migrations
                     b.Navigation("Warehouse");
                 });
 
+            modelBuilder.Entity("QLBH.Models.Product", b =>
+                {
+                    b.HasOne("QLBH.Models.Entities.Warehouse", "Warehouse")
+                        .WithMany("Product")
+                        .HasForeignKey("WH_CODE")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Warehouse");
+                });
+
             modelBuilder.Entity("QLBH.Models.Customer", b =>
                 {
                     b.Navigation("Orders");
@@ -350,6 +355,8 @@ namespace QLBH.Migrations
             modelBuilder.Entity("QLBH.Models.Entities.Warehouse", b =>
                 {
                     b.Navigation("Orders");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("QLBH.Models.Orders", b =>
@@ -360,8 +367,6 @@ namespace QLBH.Migrations
             modelBuilder.Entity("QLBH.Models.Product", b =>
                 {
                     b.Navigation("Orderdetails");
-
-                    b.Navigation("Warehouse");
                 });
 #pragma warning restore 612, 618
         }

@@ -21,7 +21,7 @@ namespace QLBH.Models
 
         public int WH_CODE { get; set; }
 
-        //public ICollection<Warehouse>? Warehouse { get; set; }
+        public Warehouse? Warehouse { get; set; }
 
         public ICollection<ORDER_DETAILS>? Orderdetails { get; set; }
 
