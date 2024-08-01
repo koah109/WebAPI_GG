@@ -9,27 +9,27 @@ namespace QLBH.DTO
     public class OrderRequest
     {
         [JsonPropertyName("dept_code")]
-        public int DEPT_CODE { get; set; } = 1;
+        public int DEPT_CODE { get; set; }
 
 
         [JsonPropertyName("cust_code")]
-        public int CUST_CODE { get; set; } = 6;
+        public int CUST_CODE { get; set; }
 
 
         [JsonPropertyName("emp_code")]
-        public int EMP_CODE { get; set; } = 4;
+        public int EMP_CODE { get; set; }
 
 
         [JsonPropertyName("wh_code")]
-        public int WH_CODE { get; set; } = 1;
+        public int WH_CODE { get; set; }
 
 
         [JsonPropertyName("cmp_tax")]
-        public int CMP_TAX { get; set; } = 10;
+        public int CMP_TAX { get; set; }
 
 
         [JsonPropertyName("slip_comment")]
-        public string? SLIP_COMMENT { get; set; } = "quá tốt";
+        public string? SLIP_COMMENT { get; set; }
 
 
         [JsonPropertyName("orderdetails")]

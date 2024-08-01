@@ -45,11 +45,11 @@ namespace QLBH.Service
             return dept;
         }
 
-        public Task<Department> UpdateDepartment(Department request)
+        public async Task<Department> UpdateDepartment(Department request)
         {
             _context.Entry(request).State = EntityState.Modified;
-            _context.SaveChanges();
-            return Task.FromResult(request);
+            await _context.SaveChangesAsync();
+            return request;
         }
 
     }

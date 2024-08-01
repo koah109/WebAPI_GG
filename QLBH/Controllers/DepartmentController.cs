@@ -46,7 +46,7 @@ namespace QLBH.Controllers
 
         [HttpPut]
         [Route("update-dept")]
-        public async Task<IActionResult> PutDept([FromBody] Department request)
+        public async Task<IActionResult> PutDept(Department request)
         {
             var dept = await Department_Service.UpdateDepartment(request);
             return Ok(dept);

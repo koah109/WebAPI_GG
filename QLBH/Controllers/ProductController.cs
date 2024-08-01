@@ -60,7 +60,7 @@ namespace QLBH.Controllers
 
         [HttpPut]
         [Route("update-product")]
-        public async Task<IActionResult> PutProd([FromBody] Product request)
+        public async Task<IActionResult> PutProd(Product request)
         {
             var product = await Product_Service.PutProductById(request);
             return Ok(product);

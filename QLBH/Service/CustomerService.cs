@@ -28,36 +28,23 @@ namespace QLBH.Service
         }
 
 
-        public async Task<Customer> PatchCustomer(int id, CustomerRequest request)
-        {
-            var customer = await _context.CUSTOMER.FindAsync(id);
-            if (customer == null)
-            {
-                throw new KeyNotFoundException("Customer not found");
-            }
-            if (!string.IsNullOrEmpty(request.CUST_NAME))
-            {
-                customer.CUST_NAME = request.CUST_NAME;
-            }
-            if (!string.IsNullOrEmpty(request.ADDRESS))
-            {
-                customer.ADDRESS = request.ADDRESS;
-            }
-            if (!string.IsNullOrEmpty(request.PHONE))
-            {
-                customer.PHONE = request.PHONE;
-            }
-            _context.CUSTOMER.Update(customer);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException ex)
-            {
-                throw new Exception("Cập nhật thông tin lỗi", ex);
-            }
-            return customer;
-        }
+        //public async Task<Customer> PatchCustomer(int id, CustomerRequest request)
+        //{
+        //    //var customer = await _context.CUSTOMER.FindAsync(id);
+        //    var cust = _mapper.Map<Customer>(request);
+        //    _context.CUSTOMER.Add(cust);
+        //    await _context.SaveChangesAsync();
+        //    _context.CUSTOMER.Update(cust);
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException ex)
+        //    {
+        //        throw new Exception("Cập nhật thông tin lỗi", ex);
+        //    }
+        //    return cust;
+        //}
 
 
         public async Task<Customer> DeleteCus(int id)
@@ -84,11 +71,11 @@ namespace QLBH.Service
         }
 
 
-        public Task<Customer> PutCust(Customer request)
+        public async Task<Customer> PutCust(Customer request)
         {
             _context.Entry(request).State = EntityState.Modified;
-            _context.SaveChanges();
-            return Task.FromResult(request);
+            await _context.SaveChangesAsync();
+            return request;
         }
     }
 }
