@@ -25,8 +25,6 @@ namespace QLBH.Models
 
         public ICollection<ORDER_DETAILS>? Orderdetails { get; set; }
 
-        /* [ForeignKey("WH_CODE")]
-         public Warehouse? Warehouse { get; set; }*/
     }   
 
 }

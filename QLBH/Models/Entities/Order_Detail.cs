@@ -40,11 +40,5 @@ namespace QLBH.Models
 
         public Product? Product { get; set; }
 
-/*        [ForeignKey("ORDER_NO")]
-        public Orders? Orders { get; set; }
-
-
-        [ForeignKey("PROD_CODE")]
-        public Product? Product { get; set; }*/
     }
 }

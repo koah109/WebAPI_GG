@@ -34,11 +34,11 @@ namespace QLBH.Service
             return emp;
         }
 
-        public  Task<Employee> UpdateEmployee(Employee request)
+        public async  Task<Employee> UpdateEmployee(Employee request)
         {
             _context.Entry(request).State = EntityState.Modified;
-            _context.SaveChanges();
-            return Task.FromResult(request);
+            await _context.SaveChangesAsync();
+            return request;
         }
 
 

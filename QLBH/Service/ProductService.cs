@@ -43,11 +43,11 @@ namespace QLBH.Service
             return order;
         }
 
-        public Task<Product> PutProductById(Product request)
+        public async Task<Product> PutProductById(Product request)
         {
             _context.Entry(request).State = EntityState.Modified;
-            _context.SaveChanges();
-            return  Task.FromResult(request);
+            await _context.SaveChangesAsync();
+            return request;
 
         }
 
@@ -60,7 +60,7 @@ namespace QLBH.Service
                 throw new Exception("Không có sản phẩm để xóa");
             }
             _context.PRODUCT.Remove(product);
-            Task<int> task = _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return product;
         }
     }

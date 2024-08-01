@@ -29,23 +29,23 @@ namespace QLBH.Service
             _context.ORDERS.Add(order);
             _context.SaveChanges();
 
-           /* foreach (var detail in request.OrderDetails)
-            {
-                var prod = await _context.PRODUCT
-                .Where(p => p.PROD_CODE == detail.PROD_CODE)
-                .FirstOrDefaultAsync();
+            /* foreach (var detail in request.OrderDetails)
+             {
+                 var prod = await _context.PRODUCT
+                 .Where(p => p.PROD_CODE == detail.PROD_CODE)
+                 .FirstOrDefaultAsync();
 
-                var orderDetail = _mapper.Map<ORDER_DETAILS>(prod);
-                orderDetail.ORDER_NO = order.ORDER_NO; // Ánh xạ khóa ngoại
-                orderDetail.QUANTITY = detail.QUANTITY; // Ánh xạ số lượng từ detail
-                _context.ORDER_DETAILS.Add(orderDetail);
-           /
-                Cập nhật số lượng tồn kho
-                prod.STOCK_QTY -= detail.QUANTITY;
-                _context.PRODUCT.Update(prod);
-            }
-                 await _context.SaveChangesAsync();*/
-                 return order;
+                 var orderDetail = _mapper.Map<ORDER_DETAILS>(prod);
+                 orderDetail.ORDER_NO = order.ORDER_NO; // Ánh xạ khóa ngoại
+                 orderDetail.QUANTITY = detail.QUANTITY; // Ánh xạ số lượng từ detail
+                 _context.ORDER_DETAILS.Add(orderDetail);
+            /
+                 Cập nhật số lượng tồn kho
+                 prod.STOCK_QTY -= detail.QUANTITY;
+                 _context.PRODUCT.Update(prod);
+             }
+                  await _context.SaveChangesAsync();*/
+            return order;
                
         }
 

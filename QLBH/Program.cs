@@ -3,6 +3,7 @@ using QLBH.Data;
 using QLBH.Interface;
 using QLBH.Service;
 using QLBH.AutoMapper;
+using QLBH.App_Start;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,18 +13,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IOrdersService, OrdersService>();
-builder.Services.AddScoped<ICustomerService, CustomerService>();
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
-builder.Services.AddScoped<IDepartmentService, DepartmentService>();
-builder.Services.AddScoped<IWarehouseService, WarehouseService>();
+
 // Auto Mapper
 builder.Services.AddAutoMapper(typeof(Mapping));
 
-// MAP SERVICE
-//AutoFac.Res(builder.Services);
+//MAP SERVICE
+AutoFac.Res(builder.Services, builder.Configuration);
 
 var app = builder.Build();
 

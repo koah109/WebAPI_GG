@@ -59,29 +59,10 @@ namespace QLBH.Controllers
 
         [HttpPut]
         [Route("update-customer")]
-        public async Task<IActionResult> UpdateCustomer([FromBody] Customer response)
+        public async Task<IActionResult> UpdateCustomer(Customer response)
         {
             var cust = await Customer_service.PutCust(response);
             return Ok(cust);
-        }
-
-        [HttpPatch]
-        [Route("update-info-cust")]
-        public async Task<IActionResult> UpdateInfoCust(int id,[FromBody] CustomerRequest request)
-        {
-            try
-            {
-                var updatedCustomer = await Customer_service.PatchCustomer(id, request);
-                return Ok(updatedCustomer);
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound();
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
         }
 
 
