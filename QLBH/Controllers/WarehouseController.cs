@@ -13,17 +13,17 @@ namespace QLBH.Controllers
     [Route("api/warehouse")]
     public class WarehouseController : ControllerBase
     { 
-        private readonly IWarehouseService Warehouse_Service;
+        private readonly IWarehouseService _warehouseService;
         public WarehouseController(IWarehouseService warehouseService)
         {
-            Warehouse_Service = warehouseService;
+            _warehouseService = warehouseService;
         }
 
         [HttpGet]
         [Route("get-warehouse/{id}")]
         public async Task<IActionResult> GetWareHouse(int id)
         {
-            var wh = await Warehouse_Service.GetWHById(id);
+            var wh = await _warehouseService.GetWHById(id);
             var result = new BaseResultPagingResponse<Warehouse>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -42,16 +42,27 @@ namespace QLBH.Controllers
                 return BadRequest(ModelState);
             }
 
-            var wh = await Warehouse_Service.PostWH(request);
-            return CreatedAtAction(nameof(GetWareHouse), new { id = wh.WH_CODE }, wh);
+            var wh = await _warehouseService.PostWH(request);
+            return Ok(wh);
+        }
+
+
+        [HttpPut]
+        [Route("update-warehouse")]
+        public async Task<IActionResult> PutWareHouse(Warehouse request)
+        {
+            var wh = await _warehouseService.UpdateWH(request);
+            return Ok(wh);
         }
 
         [HttpDelete]
         [Route("delete-warehouse")]
         public async Task<IActionResult> DeleteWarehouse(int id)
         {
-            var wh = await Warehouse_Service.DeleteWH(id);
+            var wh = await _warehouseService.DeleteWH(id);
             return Ok(wh);
         }
+
+
     }
 }

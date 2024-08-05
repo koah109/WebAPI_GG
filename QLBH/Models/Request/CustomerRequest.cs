@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace QLBH.DTO
 {
@@ -7,8 +8,9 @@ namespace QLBH.DTO
         [JsonPropertyName("cust_name")]
         public string? CUST_NAME { get; set; }
 
-
         [JsonPropertyName("address")]
+        [MaxLength(255)]
+        [MinLength(0)]
         public string? ADDRESS { get; set; }
 
 

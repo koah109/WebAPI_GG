@@ -9,6 +9,10 @@ namespace QLBH.Interface
 
         Task<List<Orders>> GetOrderById(int id);
 
+        Task<OrderRequest> GetDetailOrder(int id);
+
         Task<Orders> DeleteOrderById(int id);
+
+        Task<Orders> ChangeOrder(int id, OrderRequest request);
     }
 }

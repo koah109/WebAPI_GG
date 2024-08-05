@@ -5,14 +5,14 @@ namespace QLBH.Interface
 {
     public interface ICustomerService
     {
-        Task<List<Customer>> GetCustomer(int id);
+        Task<List<Customer>> GetCustomer();
 
         Task<Customer> DeleteCus(int id);
 
         Task<Customer> PostCust(CustomerRequest request);
 
-        Task<Customer> PutCust(Customer request);
+        Task<Customer> PutCust(int id, CustomerRequest request);
 
-        //Task<Customer> PatchCustomer(int id, CustomerRequest request);
+
     }
 }

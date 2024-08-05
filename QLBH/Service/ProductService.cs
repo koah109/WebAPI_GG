@@ -28,7 +28,7 @@ namespace QLBH.Service
             return await prod.ToListAsync();         
         }
 
-        public async Task<List<Product>> GetProd(int id)
+        public async Task<List<Product>> GetProd()
         {
             return await _context.PRODUCT.ToListAsync();
         }
@@ -54,7 +54,7 @@ namespace QLBH.Service
 
         public async Task<Product> DeleteProductById(int id)
         {
-            Product product = await _context.PRODUCT.Where(n => n.PROD_CODE == id).FirstOrDefaultAsync();
+            Product product = await _context.PRODUCT.FindAsync(id);
             if (product == null)
             {
                 throw new Exception("Không có sản phẩm để xóa");

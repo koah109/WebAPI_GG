@@ -11,17 +11,17 @@ namespace QLBH.Controllers
     [Route("api/report")]
     public class ReportController:ControllerBase
     {
-        private readonly IReport Report_Service;
+        private readonly IReport _reportService;
         public ReportController(IReport report)
         {
-            Report_Service = report;
+            _reportService = report;
         }
 
         [HttpGet]
         [Route("get-report")]
         public async Task<IActionResult> GetReports(int request)
         {
-            var rp = await Report_Service.GetReport(request);
+            var rp = await _reportService.GetReport(request);
             var result = new BaseResultPagingResponse<ReportRequest>();
             result.Status = 200;
             result.Message = "Get ok";

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLBH.Data;
@@ -39,7 +40,7 @@ namespace QLBH.Service
 
         public async Task<Warehouse> DeleteWH(int id)
         {
-            Warehouse wh =  _context.WAREHOUSE.Where(n => n.WH_CODE == id).FirstOrDefault();
+            Warehouse wh = await _context.WAREHOUSE.FindAsync(id);
             if (wh == null)
             {
                 throw new Exception("Không có nhân viên để xóa");
@@ -49,7 +50,14 @@ namespace QLBH.Service
             return wh;
         }
 
+        public async Task<Warehouse> UpdateWH(Warehouse request)
+        {
+            _context.Entry(request).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+            return request;
+        }
 
-        
+
+
     }
 }

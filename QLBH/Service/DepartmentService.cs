@@ -35,7 +35,7 @@ namespace QLBH.Service
 
         public async Task<Department> DeleteDepartment(int id)
         {
-            Department dept = await _context.DEPARTMENT.Where(n => n.DEPT_CODE == id).FirstOrDefaultAsync();
+            Department dept = await _context.DEPARTMENT.FindAsync(id);
             if (dept == null)
             {
                 throw new Exception("Không có phòng ban để xóa");

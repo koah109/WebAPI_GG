@@ -45,7 +45,7 @@ namespace QLBH.Service
         public async Task<Employee> DeleteEmployee(int id)
         {
 
-            Employee emp = await _context.EMPLOYEE.Where(n => n.EMP_CODE == id).FirstOrDefaultAsync();
+            Employee emp = await _context.EMPLOYEE.FindAsync(id);
             if (emp == null)
             {
                 throw new Exception("Không có nhân viên để xóa");

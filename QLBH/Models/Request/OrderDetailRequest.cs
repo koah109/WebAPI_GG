@@ -10,7 +10,7 @@ namespace QLBH.Models
         public int PROD_CODE { get; set; }
 
         [JsonPropertyName("unitprice")]
-        public float? UNITPRICE {  get; set; }
+        public float UNITPRICE {  get; set; }
 
 
         [JsonPropertyName("quantity")]
@@ -39,5 +39,6 @@ namespace QLBH.Models
 
         [JsonPropertyName("discount")]
         public float DISCOUNT {  get; set; }
+        public int SO_ROW_NO { get; internal set; }
     }
 }

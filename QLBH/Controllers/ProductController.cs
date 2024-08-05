@@ -9,10 +9,10 @@ namespace QLBH.Controllers
     [Route("api/product")]
     public class ProductController: ControllerBase
     {
-        private readonly IProductService Product_Service;
+        private readonly IProductService _productService;
         public ProductController(IProductService productService)
         {
-            Product_Service = productService;
+            _productService = productService;
         }
 
         //todo api search sản phẩm theo tên 
@@ -20,7 +20,7 @@ namespace QLBH.Controllers
         [Route("get-product-byname")]
         public IActionResult SearchProdByName(ProductRequest request)
         {
-            var prod = Product_Service.GetProdByName(request);
+            var prod = _productService.GetProdByName(request);
             var result = new BaseResultPagingResponse<Product>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -31,11 +31,11 @@ namespace QLBH.Controllers
         }
 
         [HttpGet]
-        [Route("get-id-product")]
+        [Route("get-list-product")]
 
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById()
         {
-            var order = await Product_Service.GetProd(id);
+            var order = await _productService.GetProd();
             var result = new BaseResultPagingResponse<Product>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -53,8 +53,8 @@ namespace QLBH.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var product = await Product_Service.PostProdById(products);
-            return CreatedAtAction(nameof(GetById), new { id = product.PROD_CODE }, product); //nameof(Lấy hàm get từ service)
+            var product = await _productService.PostProdById(products);
+            return Ok(product);
         }
 
 
@@ -62,7 +62,7 @@ namespace QLBH.Controllers
         [Route("update-product")]
         public async Task<IActionResult> PutProd(Product request)
         {
-            var product = await Product_Service.PutProductById(request);
+            var product = await _productService.PutProductById(request);
             return Ok(product);
         }
 
@@ -71,7 +71,7 @@ namespace QLBH.Controllers
         [Route("delete-product")]
         public async Task<IActionResult> DeleteProd(int id)
         {
-            var product = await Product_Service.DeleteProductById(id);
+            var product = await _productService.DeleteProductById(id);
             return Ok(product);
         }
     }

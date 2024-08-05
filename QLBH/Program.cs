@@ -4,6 +4,7 @@ using QLBH.Interface;
 using QLBH.Service;
 using QLBH.AutoMapper;
 using QLBH.App_Start;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddAutoMapper(typeof(Mapping));
 
 //MAP SERVICE
 AutoFac.Res(builder.Services, builder.Configuration);
+
+
 
 var app = builder.Build();
 

@@ -11,5 +11,7 @@ namespace QLBH.Interface
         Task<Warehouse> PostWH(WarehouseRequest request);
 
         Task<Warehouse> DeleteWH(int id);
+
+        Task<Warehouse> UpdateWH(Warehouse request);
     }
 }

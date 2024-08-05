@@ -10,10 +10,10 @@ namespace QLBH.Controllers
     [Route("api/orders")]
     public class OrdersController:ControllerBase
     {
-        private readonly IOrdersService Order_service;
+        private readonly IOrdersService _orderService;
         public OrdersController(IOrdersService Orderservice)
         {
-            Order_service = Orderservice;
+            _orderService = Orderservice;
         }
 
 
@@ -25,8 +25,8 @@ namespace QLBH.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var orderd = await Order_service.PostOrders(request);
-            return Ok(null);
+            var orderd = await _orderService.PostOrders(request);
+            return Ok("Đặt hàng thành công");
             
         }
 
@@ -34,7 +34,7 @@ namespace QLBH.Controllers
         [Route("get-orders")]
         public async Task<IActionResult> GetById(int id)
         {
-            var order = await Order_service.GetOrderById(id);
+            var order = await _orderService.GetOrderById(id);
             var result = new BaseResultPagingResponse<Orders>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -45,17 +45,34 @@ namespace QLBH.Controllers
         }
 
 
+        [HttpGet]
+        [Route("get-detail-orders/{id}")]
+        public async Task<IActionResult> GetOrderDetail(int id)
+        {
+            var order = await _orderService.GetDetailOrder(id);
+            return Ok(order);
+        }
+
+
         [HttpDelete]
         [Route("delete-orders")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
-            var result = await Order_service.DeleteOrderById(id);
+            var result = await _orderService.DeleteOrderById(id);
             if (result == null)
             {
                 return NotFound();
             }
             return Ok(result);
 
+        }
+
+        [HttpPut]
+        [Route("update-order")]
+        public async Task<IActionResult> UpdateOrder(int id, [FromBody] OrderRequest request)
+        {
+            var newOrd = await _orderService.ChangeOrder(id, request);
+            return Ok(newOrd);
         }
 
 

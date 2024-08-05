@@ -10,31 +10,18 @@ namespace QLBH.Controllers
     [Route("api/customer")]
     public class CustomerController : ControllerBase
     {
-        private readonly ICustomerService Customer_service;
+        private readonly ICustomerService _customerService;// _customerService
         public CustomerController( ICustomerService customerService)
         {
-            Customer_service = customerService;
+            _customerService = customerService;
         }
 
-        [HttpGet]
-        [Route("list-customer")]
-        public async Task<IActionResult> GetListCust(int id)
-        {
-            var cust = await Customer_service.GetCustomer(id);
-            var result = new BaseResultPagingResponse<Customer>();
-            result.Status = 200;
-            result.Message = "Get ok";
-            result.Page = 0;
-            result.Total = 0;
-            result.Items = cust;
-            return Ok(result);
-        }
 
         [HttpGet]
-        [Route("list-cust/{id}")]
-        public async Task<IActionResult> CustByID(int id)
+        [Route("list-cust")]
+        public async Task<IActionResult> CustByID()
         {
-            var cust = await Customer_service.GetCustomer(id);
+            var cust = await _customerService.GetCustomer();
             var result = new BaseResultPagingResponse<Customer>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -52,16 +39,15 @@ namespace QLBH.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var product = await Customer_service.PostCust(request);
-            return CreatedAtAction(nameof(CustByID), new { id = product.CUST_CODE }, product);
+            var product = await _customerService.PostCust(request);
+            return Ok(product);
         }
 
         [HttpPut]
         [Route("update-customer")]
-        public async Task<IActionResult> UpdateCustomer(Customer response)
+        public async Task<IActionResult> UpdateCustomer(int id,CustomerRequest response)
         {
-            var cust = await Customer_service.PutCust(response);
+            var cust = await _customerService.PutCust(id,response);
             return Ok(cust);
         }
 
@@ -70,7 +56,7 @@ namespace QLBH.Controllers
         [Route("delete-customer")]
         public async Task<IActionResult> DelCust(int id)
         {
-            var cust = await Customer_service.DeleteCus(id);
+            var cust = await _customerService.DeleteCus(id);
             return Ok(cust);
         }
 

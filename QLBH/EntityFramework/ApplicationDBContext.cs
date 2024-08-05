@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using QLBH.AutoMapper;
 using QLBH.Models;
 using QLBH.Models.Entities;
 
@@ -29,6 +28,7 @@ namespace QLBH.Data
             optionsBuilder.UseSqlServer("Server=ADMIN;Database=NewDB;Trusted_Connection=True; MultipleActiveResultSets=true;TrustServerCertificate=True");
             
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Cấu hình khóa ngoại từ Warehouse đến Product

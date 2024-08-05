@@ -2,6 +2,7 @@
 using QLBH.Interface;
 using QLBH.Service;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 
 namespace QLBH.App_Start
@@ -18,6 +19,7 @@ namespace QLBH.App_Start
             builder.AddScoped<IDepartmentService, DepartmentService>();
             builder.AddScoped<IWarehouseService, WarehouseService>();
             builder.AddScoped<IReport, ReportService>();
+            
         }
     }
 }

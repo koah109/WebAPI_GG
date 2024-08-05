@@ -12,17 +12,17 @@ namespace QLBH.Controllers
     [Route("api/employee")]
     public class EmployeeController:ControllerBase
     {
-        private readonly IEmployeeService Emp_Service;
+        private readonly IEmployeeService _employeeService;
         public EmployeeController(IEmployeeService emp_Service)
         {
-            Emp_Service = emp_Service;
+            _employeeService = emp_Service;
         }
 
         [HttpGet]
         [Route("get-list-employee")]
         public async Task<IActionResult> GetEmpById(int id)
         {
-            var emp = await Emp_Service.GetEmployee(id);
+            var emp = await _employeeService.GetEmployee(id);
             var result = new BaseResultPagingResponse<Employee>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -41,15 +41,15 @@ namespace QLBH.Controllers
                 return BadRequest(ModelState);
             }
 
-            var emp = await Emp_Service.PostEmployee(request);
-            return CreatedAtAction(nameof(GetEmpById), new { id = emp.EMP_CODE  }, emp);
+            var emp = await _employeeService.PostEmployee(request);
+            return Ok(emp);
         }
 
         [HttpPut]
         [Route("update-employee")]
         public async Task<IActionResult> PutEmployee(Employee request)
         {
-            var cust = await Emp_Service.UpdateEmployee(request);
+            var cust = await _employeeService.UpdateEmployee(request);
             return Ok(cust);
         }
 
@@ -59,7 +59,7 @@ namespace QLBH.Controllers
         [Route("delete-employee")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
-            var emp = await Emp_Service.DeleteEmployee(id);
+            var emp = await _employeeService.DeleteEmployee(id);
             return Ok(emp);
         }
     }

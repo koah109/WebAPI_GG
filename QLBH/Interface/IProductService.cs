@@ -9,7 +9,7 @@ namespace QLBH.Interface
         Task<List<Product>> GetProdByName(ProductRequest request);
 
 
-        Task<List<Product>> GetProd(int id);
+        Task<List<Product>> GetProd();
 
         Task<Product> PostProdById(ProductRequest request);
 

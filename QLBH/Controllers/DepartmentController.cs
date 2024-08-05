@@ -11,17 +11,17 @@ namespace QLBH.Controllers
     [Route("api/department")]
     public class DepartmentController:ControllerBase
     {
-        private readonly IDepartmentService Department_Service;
+        private readonly IDepartmentService _departmentService;
         public DepartmentController(IDepartmentService department_Service)
         {
-            Department_Service = department_Service;
+            _departmentService = department_Service;
         }
 
         [HttpGet]
         [Route("get-list-byid")]
         public async Task<IActionResult> GetDeptById(int id)
         {
-            var dept = await Department_Service.GetDepartmentById(id);
+            var dept = await _departmentService.GetDepartmentById(id);
             var result = new BaseResultPagingResponse<Department>();
             result.Status = 200;
             result.Message = "Get ok";
@@ -40,15 +40,15 @@ namespace QLBH.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var dept = await Department_Service.PostDepartment(request);
-            return CreatedAtAction(nameof(GetDeptById), new { id = dept.DEPT_CODE }, dept);
+            var dept = await _departmentService.PostDepartment(request);
+            return Ok(dept);
         }
 
         [HttpPut]
         [Route("update-dept")]
         public async Task<IActionResult> PutDept(Department request)
         {
-            var dept = await Department_Service.UpdateDepartment(request);
+            var dept = await _departmentService.UpdateDepartment(request);
             return Ok(dept);
         }
 
@@ -57,7 +57,7 @@ namespace QLBH.Controllers
         [Route("delete-byid")]
         public async Task<IActionResult> DeleteDept(int id)
         {
-            var dept = await Department_Service.DeleteDepartment(id);
+            var dept = await _departmentService.DeleteDepartment(id);
             return Ok(dept);
         }
     }
